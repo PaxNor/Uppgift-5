@@ -12,6 +12,31 @@ namespace Uppgift_5
         private readonly int capacity;
         private int occupancy;
 
+        // removes white space and convert to upper case
+        // TODO: move elsewhere
+        private string CompactUserString(string userString) {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in userString) {
+                if (char.IsWhiteSpace(c) == false) { 
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString().ToUpper();
+        }
+
+        // returns index of vehicle with the requested license plate nr.
+        // the function returns -1 if the vehicle is not found in garage.
+        private int FindParkingSpot(string licensePlateNr) {
+            for (int i = 0; i < capacity; i++) {
+                if (parkingSpot[i] != null) {
+                    if (parkingSpot[i].LicensePlateNr == licensePlateNr) {
+                        return i;
+                    }
+                }
+            }
+            return -1;
+        }
+
         public Garage(int capacity) {
             this.parkingSpot = new Vehicle[capacity];
             this.occupancy = 0;
@@ -20,15 +45,40 @@ namespace Uppgift_5
 
         public IEnumerator<Vehicle> GetEnumerator() {
             foreach (Vehicle v in this.parkingSpot) {
-                yield return v;
+                if(v != null) yield return v;
             }
         }
 
-        // kanske returnera en bool ifall garaget är fullt?
-        public void Add(Vehicle vehicle) {
-            if (occupancy == capacity) return;
-            parkingSpot[occupancy] = vehicle;
+        // Adds vehicle to garage. Returns true if successful or null if garage is full
+        public bool Add(Vehicle vehicle) {
+            if (occupancy == capacity) return false;
+
+            // find first empty spot
+            for(int i = 0; i < capacity; i++) {
+                if (parkingSpot[i] == null) {
+                    parkingSpot[i] = vehicle;
+                    break;
+                }
+            }
             occupancy++;
+            return true;
+        }
+
+        // returns vehicle in garage or null if not found
+        public Vehicle? FindVehicle(string licensePlateNr) {
+            int spot = FindParkingSpot(licensePlateNr);
+            return spot == -1 ? null : parkingSpot[spot];
+        }
+
+        // removes vehicle from garage and returns it or null if not found
+        public Vehicle? RemoveVehicle(string licensePlateNr) {
+            Vehicle removed;
+            int spot = FindParkingSpot(licensePlateNr);
+            if (spot == -1) return null;
+            removed = parkingSpot[spot];
+            parkingSpot.SetValue(null, spot); // can not set directly without warning?!
+            occupancy--;
+            return removed;
         }
     }
 }
