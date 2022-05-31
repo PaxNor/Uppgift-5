@@ -13,5 +13,11 @@ namespace Uppgift_5
         public Garage(int capacity) {
             this.parkingSpot = new Vehicle[capacity];
         }
+
+        public IEnumerator<Vehicle> GetEnumerator() {
+            foreach (Vehicle v in this.parkingSpot) {
+                yield return v;
+            }
+        }
     }
 }
