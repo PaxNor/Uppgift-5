@@ -8,7 +8,7 @@ namespace Uppgift_5
 {
     internal class Car : Vehicle {
 
-        public enum Type { sedan, convertible, pickup };
+        public enum Type { coupe, sedan, convertible, pickup, SUV };
 
         private Type type;
 

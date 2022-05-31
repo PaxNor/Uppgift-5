@@ -22,10 +22,10 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return $"License plate: {LicensePlateNr}" +
-                   $"Wheel count: {WheelCount}" +
-                   $"Color: {Color}" +
-                   $"Brand: {Brand}";
+            return $"License plate: {LicensePlateNr}, " +
+                   $"Wheel count: {WheelCount}, " +
+                   $"Color: {Color}, " +
+                   $"Brand: {Brand}, ";
         }
     }
 }
