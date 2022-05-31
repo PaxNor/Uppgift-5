@@ -20,5 +20,12 @@ namespace Uppgift_5
             Color = color;
             Brand = brand;
         }
+
+        public override string ToString() {
+            return $"License plate: {LicensePlateNr}" +
+                   $"Wheel count: {WheelCount}" +
+                   $"Color: {Color}" +
+                   $"Brand: {Brand}";
+        }
     }
 }
