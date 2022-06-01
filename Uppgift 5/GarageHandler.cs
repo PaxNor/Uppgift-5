@@ -43,5 +43,10 @@ namespace Uppgift_5
             var vehicle = garage.FindVehicle(plateFormat);
             return vehicle == null ? false : true;
         }
+
+        public Vehicle? RemoveVehicle(Garage<Vehicle> garage, string plateNr) {
+            string plateFormat = CompactUserString(plateNr);
+            return garage.RemoveVehicle(plateFormat);
+        }
     }
 }

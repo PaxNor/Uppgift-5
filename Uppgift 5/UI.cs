@@ -81,16 +81,12 @@ namespace Uppgift_5
                         break;
                         
                     case "4":
+                        // done
                         Console.Write("Enter license plate number: ");
                         plate = Console.ReadLine();
-                        // TODO: fix formatting on plate nr
-                        var vehicle = garage.RemoveVehicle(plate);
-                        if(vehicle == null) {
-                            Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
-                        }
-                        else {
-                            Console.WriteLine($"Vehicle {plate} removed");
-                        }
+                        var vehicle = garageHandler.RemoveVehicle(garage, plate);
+                        if(vehicle != null) Console.WriteLine($"Vehicle {plate} removed from garage");
+                        else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
                         break;
 
                     case "5":
