@@ -61,16 +61,23 @@ namespace Uppgift_5
                         break;
 
                     case "2":
-                        Console.WriteLine("Find.");
-                        // search on license plate
-                        // return car
+                        Console.Write("Enter license plate number: ");
+                        string plate = Console.ReadLine();
+                        // TODO: fix formatting on plate nr
+                        var vehicle = garage.FindVehicle(plate);
+                        if (vehicle == null) {
+                            Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
+                        }
+                        else {
+                            Console.WriteLine($"Vehicle {plate} is in garage");
+                        }
                         break;
                         
                     case "3":
                         Console.Write("Enter license plate number: ");
-                        string plate = Console.ReadLine();
-                        // fix formatting on plate
-                        var vehicle = garage.RemoveVehicle(plate);
+                        plate = Console.ReadLine();
+                        // TODO: fix formatting on plate nr
+                        vehicle = garage.RemoveVehicle(plate);
                         if(vehicle == null) {
                             Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
                         }
