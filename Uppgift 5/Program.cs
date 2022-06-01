@@ -41,3 +41,7 @@ Console.WriteLine($"Free spots: {garage.FreeSpace()}");
 foreach (Vehicle spot in garage) {
     Console.WriteLine(spot);
 }
+
+// 1st test of UI
+UI ui = new();
+ui.Start();
