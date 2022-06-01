@@ -21,7 +21,7 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return base.ToString() + $"Type: {Type.ToString()}, SubType: {subType.ToString()}";
+            return base.ToString() + $"Type: {Type.ToString(), 10}, SubType: {subType.ToString()}";
         }
     }
 }

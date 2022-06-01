@@ -20,7 +20,7 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return base.ToString() + $"Seat count: {SeatCount}, Weight: {Weight}, Type: {Type.ToString()}";
+            return base.ToString() + $"Seat count: {SeatCount, 3}, Weight: {Weight, 4}, Type: {Type.ToString(), 10}";
         }
     }
 }
