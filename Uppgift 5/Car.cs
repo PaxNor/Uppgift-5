@@ -9,14 +9,12 @@ namespace Uppgift_5
     internal class Car : Vehicle {
 
         public enum SubType { coupe, sedan, convertible, pickup, SUV };
-
-        public VehicleType Type { get; }
         private SubType subType;
 
         public Car(string licensePlateNr, uint wheelCount, string color, string brand, SubType subType) 
             : base(licensePlateNr, wheelCount, color, brand)
         {
-            Type = VehicleType.Car;
+            base.Type = VehicleType.Car;
             this.subType = subType;
         }
 

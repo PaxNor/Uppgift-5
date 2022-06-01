@@ -14,12 +14,13 @@ namespace Uppgift_5
 
         private const string mainMenu =
             "1. Park vehicle\n" +
-            "2. Find vehicle\n" +
-            "3. Remove vehicle\n" +
-            "4. List all vehicles\n" +
-            "5. Search by property\n" +
-            "6. Show available parking spots\n" +
-            "7. Quit";
+            "2. Show stats\n" +
+            "3. Find vehicle\n" +
+            "4. Remove vehicle\n" +
+            "5. List all vehicles\n" +
+            "6. Search by property\n" +
+            "7. Show available parking spots\n" +
+            "8. Quit";
 
         private const string subMenu =
             "Enter query to list vehicles based on the given properties.\n" +
@@ -55,12 +56,15 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
-                        Console.WriteLine("Add."); 
-                        // choose type
-                        // add to garage
+                        Console.Write("Park vehicle");
                         break;
 
                     case "2":
+                        // show stat, list vehicle types and how many of each
+                        break;
+
+                    case "3":
+                        // done
                         Console.Write("Enter license plate number: ");
                         string plate = Console.ReadLine();
                         // TODO: fix formatting on plate nr
@@ -73,7 +77,8 @@ namespace Uppgift_5
                         }
                         break;
                         
-                    case "3":
+                    case "4":
+                        // done
                         Console.Write("Enter license plate number: ");
                         plate = Console.ReadLine();
                         // TODO: fix formatting on plate nr
@@ -86,25 +91,25 @@ namespace Uppgift_5
                         }
                         break;
 
-                    case "4":
+                    case "5":
                         // done
                         foreach(Vehicle v in garage) {
                             Console.WriteLine(v);
                         }
                         break;
 
-                    case "5":
+                    case "6":
                         // search by property
                         Console.WriteLine(subMenu);
                         CommandPrompt();
                         break;
 
-                    case "6":
+                    case "7":
                         // done
                         Console.WriteLine($"Available parking spots: {garage.FreeSpace()}");
                         break;
 
-                    case "7":
+                    case "8":
                         isRunning = false;
                         break;
 

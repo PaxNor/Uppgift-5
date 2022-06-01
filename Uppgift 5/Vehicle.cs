@@ -13,6 +13,7 @@ namespace Uppgift_5
         public uint WheelCount { get; }
         public string Color { get; }
         public string Brand { get; }
+        public VehicleType Type { get; protected set; }
 
         public Vehicle(string licensePlateNr, uint wheelCount, string color, string brand) {
             LicensePlateNr = licensePlateNr;

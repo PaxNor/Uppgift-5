@@ -11,14 +11,13 @@ namespace Uppgift_5
         public enum SubType { sport, offroad, classic };
 
         public int TopSpeed { get; }
-        public VehicleType Type { get; }
         private SubType subType; 
 
         public Motorcycle(string licensePlateNr, uint wheelCount, string color, string brand, int topspeed, SubType subType)
             : base(licensePlateNr, wheelCount, color, brand) 
         {
             TopSpeed = topspeed;
-            Type = VehicleType.Car;
+            base.Type = VehicleType.Car;
             this.subType = subType;
         }
 
