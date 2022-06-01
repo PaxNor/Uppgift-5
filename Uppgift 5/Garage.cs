@@ -8,7 +8,7 @@ namespace Uppgift_5
 {
     internal class Garage<T> where T : Vehicle
     {
-        private Vehicle[] parkingSpot;
+        private T[] parkingSpot;
         private readonly uint capacity;
         private uint occupancy;
 
@@ -38,7 +38,7 @@ namespace Uppgift_5
         }
 
         public Garage(uint capacity) {
-            this.parkingSpot = new Vehicle[capacity];
+            this.parkingSpot = new T[capacity];
             this.occupancy = 0;
             this.capacity = capacity;
         }
@@ -50,7 +50,7 @@ namespace Uppgift_5
         }
 
         // Adds vehicle to garage. Returns true if successful or null if garage is full
-        public bool Add(Vehicle vehicle) {
+        public bool Add(T vehicle) {
             if (occupancy == capacity) return false;
 
             // find first empty spot

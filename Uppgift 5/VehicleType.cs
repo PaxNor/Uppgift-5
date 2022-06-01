@@ -14,11 +14,11 @@ namespace Uppgift_5
 {
     internal enum VehicleType
     {
-        car,
-        motorcycle,
-        bus,
-        airplane,
-        boat
+        Car,
+        Motorcycle,
+        Bus,
+        Airplane,
+        Boat
     }
 }
 

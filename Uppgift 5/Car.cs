@@ -8,18 +8,20 @@ namespace Uppgift_5
 {
     internal class Car : Vehicle {
 
-        public enum Type { coupe, sedan, convertible, pickup, SUV };
+        public enum SubType { coupe, sedan, convertible, pickup, SUV };
 
-        private Type type;
+        public VehicleType Type { get; }
+        private SubType subType;
 
-        public Car(string licensePlateNr, uint wheelCount, string color, string brand, Type type) 
+        public Car(string licensePlateNr, uint wheelCount, string color, string brand, SubType subType) 
             : base(licensePlateNr, wheelCount, color, brand)
         {
-            this.type = type;
+            Type = VehicleType.Car;
+            this.subType = subType;
         }
 
         public override string ToString() {
-            return base.ToString() + $"Type: {type.ToString()}";
+            return base.ToString() + $"Type: {subType.ToString()}";
         }
     }
 }

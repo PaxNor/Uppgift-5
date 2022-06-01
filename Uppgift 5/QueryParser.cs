@@ -8,6 +8,8 @@ namespace Uppgift_5
 {
     internal class QueryParser
     {
+        private const string error = "Unknown property, available: plate, color, wheels and brand.";
+
         // syntax: property1 value1, property2 value2, property3 value3
         public void Parse(string input) {
 
@@ -19,6 +21,11 @@ namespace Uppgift_5
 
             foreach (string query in queries) {
                 string[] pair = query.Split(' ', splitOptions);
+
+                if (pair.Length > 2) {
+                    Console.Write(error);
+                    break;
+                }
 
                 // properties: plate, color, wheels, brand
                 switch (pair[0]) {
@@ -40,7 +47,7 @@ namespace Uppgift_5
                         break;
 
                     default:
-                        Console.Write("Unknown property, available: plate, color, wheels and brand.");
+                        Console.Write(error);
                         break;
                 }
             }

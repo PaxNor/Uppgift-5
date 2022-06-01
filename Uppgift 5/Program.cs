@@ -1,10 +1,10 @@
 ﻿
 using Uppgift_5;
 
-Car car1 = new("ABC 123", 4, "Green", "Ford", Car.Type.sedan);
-Car car2 = new("EFG 123", 4, "Blue", "Volvo", Car.Type.SUV);
-Car car3 = new("HIJ 123", 4, "White", "Peugot", Car.Type.coupe);
-Car car4 = new("KLM 123", 4, "Silver", "Fiat", Car.Type.pickup);
+Car car1 = new("ABC 123", 4, "Green", "Ford", Car.SubType.sedan);
+Car car2 = new("EFG 123", 4, "Blue", "Volvo", Car.SubType.SUV);
+Car car3 = new("HIJ 123", 4, "White", "Peugot", Car.SubType.coupe);
+Car car4 = new("KLM 123", 4, "Silver", "Fiat", Car.SubType.pickup);
 
 Console.WriteLine(car2);
 
@@ -45,3 +45,4 @@ foreach (Vehicle spot in garage) {
 // 1st test of UI
 UI ui = new();
 ui.Start();
+

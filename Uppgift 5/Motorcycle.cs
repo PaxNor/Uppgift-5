@@ -8,18 +8,22 @@ namespace Uppgift_5
 {
     internal class Motorcycle : Vehicle
     {
-        public enum Type { sport, offroad, classic };
-        public int TopSpeed { get; }
-        private Type type; 
+        public enum SubType { sport, offroad, classic };
 
-        public Motorcycle(string licensePlateNr, uint wheelCount, string color, string brand, int topspeed, Type type)
-            : base(licensePlateNr, wheelCount, color, brand) {
+        public int TopSpeed { get; }
+        public VehicleType Type { get; }
+        private SubType subType; 
+
+        public Motorcycle(string licensePlateNr, uint wheelCount, string color, string brand, int topspeed, SubType subType)
+            : base(licensePlateNr, wheelCount, color, brand) 
+        {
             TopSpeed = topspeed;
-            this.type = type;
+            Type = VehicleType.Car;
+            this.subType = subType;
         }
 
         public override string ToString() {
-            return base.ToString() + $"Top speed: {TopSpeed}, Type: {type.ToString()}";
+            return base.ToString() + $"Top speed: {TopSpeed}, Type: {subType.ToString()}";
         }
     }
 }
