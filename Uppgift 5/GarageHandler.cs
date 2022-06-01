@@ -22,17 +22,14 @@ namespace Uppgift_5
         public Dictionary<VehicleType, int> GetStats(Garage<Vehicle> garage) {
             Dictionary<VehicleType, int> stats = new();
             VehicleType type;
-            int count = 0;
 
             foreach (var vehicle in garage) {
                 type  = vehicle.Type;
 
-                if (stats.ContainsKey(type)) {
-                    count = stats[type];
-                }
-
-                count++;
-                stats[type] = count;
+                if (stats.ContainsKey(type)) 
+                    stats[type]++;
+                else 
+                    stats[type] = 1;
             }
 
             return stats;

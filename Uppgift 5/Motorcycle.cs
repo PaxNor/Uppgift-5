@@ -17,7 +17,7 @@ namespace Uppgift_5
             : base(licensePlateNr, wheelCount, color, brand) 
         {
             TopSpeed = topspeed;
-            base.Type = VehicleType.Car;
+            base.Type = VehicleType.Motorcycle;
             this.subType = subType;
         }
 

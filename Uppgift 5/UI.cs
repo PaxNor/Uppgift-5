@@ -66,7 +66,7 @@ namespace Uppgift_5
                         // done
                         stats = garageHandler.GetStats(garage);
                         foreach (var stat in stats) {
-                            Console.WriteLine($"{stat.Key.ToString()}: {stat.Value,9}");
+                            Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
                         }
                         break;
 
@@ -97,7 +97,6 @@ namespace Uppgift_5
                         break;
 
                     case "6":
-                        // search by property
                         Console.WriteLine(subMenu);
                         CommandPrompt();
                         break;
