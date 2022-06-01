@@ -73,8 +73,10 @@ namespace Uppgift_5
                         break;
 
                     case "4":
-                        Console.WriteLine("List.");
-                        // list all vehicles in garage
+                        // done
+                        foreach(Vehicle v in garage) {
+                            Console.WriteLine(v);
+                        }
                         break;
 
                     case "5":

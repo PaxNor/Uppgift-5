@@ -18,7 +18,7 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return base.ToString() + $"Wingspan: {Wingspan}";
+            return base.ToString() + $"Wingspan: {Wingspan}, Type: {Type.ToString()}";
         }
 
     }

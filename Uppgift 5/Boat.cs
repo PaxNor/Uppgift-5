@@ -18,7 +18,7 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return base.ToString() + $"Length: {Length}";
+            return base.ToString() + $"Length: {Length}, Type: {Type.ToString()}";
         }
     }
 }
