@@ -11,6 +11,8 @@ namespace Uppgift_5
         private bool isRunning;
         private string choice;
         private QueryParser parser;
+        private GarageHandler garageHandler;
+        private Dictionary<VehicleType, int> stats;
 
         private const string mainMenu =
             "1. Park vehicle\n" +
@@ -44,6 +46,7 @@ namespace Uppgift_5
 
         public UI() {
             parser = new QueryParser();
+            garageHandler = new GarageHandler();
         }
 
         // experimental
@@ -60,7 +63,10 @@ namespace Uppgift_5
                         break;
 
                     case "2":
-                        // show stat, list vehicle types and how many of each
+                        stats = garageHandler.GetStats(garage);
+                        foreach (var stat in stats) {
+                            Console.WriteLine($"{stat.Key.ToString()}: {stat.Value,9}");
+                        }
                         break;
 
                     case "3":
