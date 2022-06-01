@@ -16,7 +16,6 @@ garage.Add(car3);
 garage.Add(car4);
 
 foreach(Vehicle vehicle in garage) {
-    //if (vehicle == null) break;
     Console.WriteLine(vehicle);
 }
 
