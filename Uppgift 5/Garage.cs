@@ -12,18 +12,6 @@ namespace Uppgift_5
         private readonly uint capacity;
         private uint occupancy;
 
-        // removes white space and convert to upper case
-        // TODO: move elsewhere
-        private string CompactUserString(string userString) {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in userString) {
-                if (char.IsWhiteSpace(c) == false) { 
-                    sb.Append(c);
-                }
-            }
-            return sb.ToString().ToUpper();
-        }
-
         // returns index of vehicle with the requested license plate nr.
         // the function returns -1 if the vehicle is not found in garage.
         private int FindParkingSpot(string licensePlateNr) {

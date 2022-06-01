@@ -27,7 +27,7 @@ namespace Uppgift_5
                     break;
                 }
 
-                // properties: plate, color, wheels, brand
+                // properties: plate, color, wheels, brand, type
                 switch (pair[0]) {
 
                     case "plate":

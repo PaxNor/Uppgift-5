@@ -59,10 +59,11 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
-                        Console.Write("Park vehicle");
+                        Console.WriteLine("Park vehicle");
                         break;
 
                     case "2":
+                        // done
                         stats = garageHandler.GetStats(garage);
                         foreach (var stat in stats) {
                             Console.WriteLine($"{stat.Key.ToString()}: {stat.Value,9}");
@@ -73,22 +74,17 @@ namespace Uppgift_5
                         // done
                         Console.Write("Enter license plate number: ");
                         string plate = Console.ReadLine();
-                        // TODO: fix formatting on plate nr
-                        var vehicle = garage.FindVehicle(plate);
-                        if (vehicle == null) {
-                            Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
-                        }
-                        else {
-                            Console.WriteLine($"Vehicle {plate} is in garage");
-                        }
+                        bool found = garageHandler.FindVehicle(garage, plate);
+                        if(found) Console.WriteLine($"Vehicle {plate} is in garage");
+                        else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
+
                         break;
                         
                     case "4":
-                        // done
                         Console.Write("Enter license plate number: ");
                         plate = Console.ReadLine();
                         // TODO: fix formatting on plate nr
-                        vehicle = garage.RemoveVehicle(plate);
+                        var vehicle = garage.RemoveVehicle(plate);
                         if(vehicle == null) {
                             Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
                         }
