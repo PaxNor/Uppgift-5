@@ -24,26 +24,27 @@ namespace Uppgift_5
                 switch (pair[0]) {
 
                     case "plate":
-                        Console.WriteLine($"Plate: {pair[1]}");
+                        Console.Write($"Plate: {pair[1]} ");
                         break;
 
                     case "color":
-                        Console.WriteLine($"Color: {pair[1]}");
+                        Console.Write($"Color: {pair[1]} ");
                         break;
 
                     case "wheels":
-                        Console.WriteLine($"Wheels: {pair[1]}");
+                        Console.Write($"Wheels: {pair[1]} ");
                         break;
 
                     case "brand":
-                        Console.WriteLine($"Brand: {pair[1]}");
+                        Console.Write($"Brand: {pair[1]} ");
                         break;
 
                     default:
-                        // handle errors in input here
+                        Console.Write("Unknown property, available: plate, color, wheels and brand.");
                         break;
                 }
             }
+            Console.WriteLine();
         }
 
     }

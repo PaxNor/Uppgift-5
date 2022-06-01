@@ -10,6 +10,7 @@ namespace Uppgift_5
     {
         private bool isRunning;
         private string choice;
+        private QueryParser parser;
 
         private const string mainMenu =
             "1. Park vehicle\n" +
@@ -24,10 +25,25 @@ namespace Uppgift_5
             "Enter query to list vehicles based on the given properties.\n" +
             "The syntax is key / value pairs separated with commas.\n" +
             "Valid properties are: plate, wheels, color and brand\n" +
-            "Type \'quit\' to exit to main menu.\n\n" +
+            "Type \'exit\' to exit to main menu.\n\n" +
             "Example: color black, wheels 3, brand Volvo";
 
         private const string prompt = "> ";
+
+        private void CommandPrompt() {
+            string input;
+
+            while(true) {
+                Console.Write(prompt);
+                input = Console.ReadLine();
+                if (input == "exit") break;
+                parser.Parse(input);
+            }
+        }
+
+        public UI() {
+            parser = new QueryParser();
+        }
 
         // experimental
         public void Start() {
@@ -56,7 +72,7 @@ namespace Uppgift_5
 
                     case "5":
                         Console.WriteLine(subMenu);
-                        Console.Write(prompt);
+                        CommandPrompt();
                         break;
 
                     case "6":
