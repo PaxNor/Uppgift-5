@@ -44,5 +44,5 @@ foreach (Vehicle spot in garage) {
 
 // 1st test of UI
 UI ui = new();
-ui.Start();
+ui.Start(garage);
 

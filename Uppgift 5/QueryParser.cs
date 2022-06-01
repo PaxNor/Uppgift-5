@@ -8,7 +8,7 @@ namespace Uppgift_5
 {
     internal class QueryParser
     {
-        private const string error = "Unknown property, available: plate, color, wheels and brand.";
+        private const string error = "Unknown property, available: plate, color, wheels, type and brand.";
 
         // syntax: property1 value1, property2 value2, property3 value3
         public void Parse(string input) {
@@ -44,6 +44,10 @@ namespace Uppgift_5
 
                     case "brand":
                         Console.Write($"Brand: {pair[1]} ");
+                        break;
+
+                    case "type":
+                        Console.Write($"Type: {pair[1]} ");
                         break;
 
                     default:

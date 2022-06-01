@@ -18,13 +18,13 @@ namespace Uppgift_5
             "3. Remove vehicle\n" +
             "4. List all vehicles\n" +
             "5. Search by property\n" +
-            "6. Show free space\n" +
+            "6. Show available parking spots\n" +
             "7. Quit";
 
         private const string subMenu =
             "Enter query to list vehicles based on the given properties.\n" +
             "The syntax is key / value pairs separated with commas.\n" +
-            "Valid properties are: plate, wheels, color and brand\n" +
+            "Valid properties are: plate, wheels, color, type and brand\n" +
             "Type \'exit\' to exit to main menu.\n\n" +
             "Example: color black, wheels 3, brand Volvo";
 
@@ -46,7 +46,7 @@ namespace Uppgift_5
         }
 
         // experimental
-        public void Start() {
+        public void Start(Garage<Vehicle> garage) {
             isRunning = true;
 
             while(isRunning) {
@@ -56,27 +56,36 @@ namespace Uppgift_5
                 switch (choice) {
                     case "1":
                         Console.WriteLine("Add."); 
+                        // choose type
+                        // add to garage
                         break;
 
                     case "2":
                         Console.WriteLine("Find.");
+                        // search on license plate
+                        // return car
                         break;
 
                     case "3":
                         Console.WriteLine("Remove.");
+                        // search on license plate
+                        // return car
                         break;
 
                     case "4":
                         Console.WriteLine("List.");
+                        // list all vehicles in garage
                         break;
 
                     case "5":
+                        // search by property
                         Console.WriteLine(subMenu);
                         CommandPrompt();
                         break;
 
                     case "6":
-                        Console.WriteLine("Show free space.");
+                        // done
+                        Console.WriteLine($"Available parking spots: {garage.FreeSpace()}");
                         break;
 
                     case "7":
