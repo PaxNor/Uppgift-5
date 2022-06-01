@@ -9,12 +9,12 @@ namespace Uppgift_5
     internal abstract class Vehicle
     {
         // x. registreringsnummer, färg, antal hjul och andra egenskaper ni kan komma på.
-        public string LicensePlateNr { get; set; }
-        public int WheelCount { get; set; }
-        public string Color { get; set; }
-        public string Brand { get; set; }
+        public string LicensePlateNr { get; }
+        public uint WheelCount { get; }
+        public string Color { get; }
+        public string Brand { get; }
 
-        public Vehicle(string licensePlateNr, int wheelCount, string color, string brand) {
+        public Vehicle(string licensePlateNr, uint wheelCount, string color, string brand) {
             LicensePlateNr = licensePlateNr;
             WheelCount = wheelCount;
             Color = color;

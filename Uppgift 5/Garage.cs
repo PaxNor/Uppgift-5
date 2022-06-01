@@ -9,8 +9,8 @@ namespace Uppgift_5
     internal class Garage<T> where T : Vehicle
     {
         private Vehicle[] parkingSpot;
-        private readonly int capacity;
-        private int occupancy;
+        private readonly uint capacity;
+        private uint occupancy;
 
         // removes white space and convert to upper case
         // TODO: move elsewhere
@@ -37,7 +37,7 @@ namespace Uppgift_5
             return -1;
         }
 
-        public Garage(int capacity) {
+        public Garage(uint capacity) {
             this.parkingSpot = new Vehicle[capacity];
             this.occupancy = 0;
             this.capacity = capacity;
@@ -79,6 +79,10 @@ namespace Uppgift_5
             parkingSpot.SetValue(null, spot); // can not set directly without warning?!
             occupancy--;
             return removed;
+        }
+
+        public uint FreeSpace() {
+            return capacity - occupancy;
         }
     }
 }

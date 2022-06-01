@@ -24,6 +24,9 @@ foreach(Vehicle vehicle in garage) {
 Vehicle? car = garage.FindVehicle("HIJ 123");
 Console.WriteLine(car);
 
+// report free space
+Console.WriteLine($"Free spots: {garage.FreeSpace()}");
+
 // remove car
 car = garage.FindVehicle("uuu 888");
 if(car == null) Console.WriteLine("Not found");
@@ -31,7 +34,11 @@ car = garage.RemoveVehicle("uuu 888");
 if (car == null) Console.WriteLine("Not found");
 car = garage.RemoveVehicle("HIJ 123");
 
+// report free space
+Console.WriteLine($"Free spots: {garage.FreeSpace()}");
+
+
 // check that is removed
-foreach(Vehicle spot in garage) {
+foreach (Vehicle spot in garage) {
     Console.WriteLine(spot);
 }

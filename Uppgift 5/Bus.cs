@@ -11,7 +11,7 @@ namespace Uppgift_5
         public int SeatCount { get; set; }
         public int Weight { get; set; }
 
-        public Bus(string licensePlateNr, int wheelCount, string color, string brand, int seatCount, int weight)
+        public Bus(string licensePlateNr, uint wheelCount, string color, string brand, int seatCount, int weight)
             : base(licensePlateNr, wheelCount, color, brand) {
             SeatCount = seatCount;
             Weight = weight;

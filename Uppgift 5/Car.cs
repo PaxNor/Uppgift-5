@@ -12,7 +12,7 @@ namespace Uppgift_5
 
         private Type type;
 
-        public Car(string licensePlateNr, int wheelCount, string color, string brand, Type type) 
+        public Car(string licensePlateNr, uint wheelCount, string color, string brand, Type type) 
             : base(licensePlateNr, wheelCount, color, brand)
         {
             this.type = type;

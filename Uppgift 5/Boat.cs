@@ -8,9 +8,9 @@ namespace Uppgift_5
 {
     internal class Boat : Vehicle
     {
-        public int Length { get; set; }
+        public uint Length { get; }
 
-        public Boat(string licensePlateNr, int wheelCount, string color, string brand, int length)
+        public Boat(string licensePlateNr, uint wheelCount, string color, string brand, uint length)
             : base(licensePlateNr, wheelCount, color, brand) {
             Length = length;
         }

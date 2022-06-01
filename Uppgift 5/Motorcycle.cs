@@ -9,10 +9,10 @@ namespace Uppgift_5
     internal class Motorcycle : Vehicle
     {
         public enum Type { sport, offroad, classic };
-        public int TopSpeed { get; set; }
+        public int TopSpeed { get; }
         private Type type; 
 
-        public Motorcycle(string licensePlateNr, int wheelCount, string color, string brand, int topspeed, Type type)
+        public Motorcycle(string licensePlateNr, uint wheelCount, string color, string brand, int topspeed, Type type)
             : base(licensePlateNr, wheelCount, color, brand) {
             TopSpeed = topspeed;
             this.type = type;
