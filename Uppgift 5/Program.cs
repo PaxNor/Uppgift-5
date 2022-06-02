@@ -6,12 +6,12 @@ Car car2 = new("EFG123", 4, "Blue", "Volvo", Car.SubType.SUV);
 Car car3 = new("HIJ123", 4, "White", "Peugot", Car.SubType.coupe);
 Car car4 = new("KLM123", 4, "Silver", "Fiat", Car.SubType.pickup);
 
-Motorcycle motorcycle1 = new("KLM123", 4, "Red", "Ducati", 300, Motorcycle.SubType.sport);
-Motorcycle motorcycle2 = new("KLM123", 4, "Yellow", "Yamaha", 180, Motorcycle.SubType.offroad);
+Motorcycle motorcycle1 = new("KLM123", 2, "Red", "Ducati", 300, Motorcycle.SubType.sport);
+Motorcycle motorcycle2 = new("KLM123", 2, "Yellow", "Yamaha", 180, Motorcycle.SubType.offroad);
 
-Airplane airplane = new("ESA777", 4, "White", "Boing", 23);
+Airplane airplane = new("ESA777", 3, "White", "Boing", 23);
 
-Bus bus1 = new("UUU333", 4, "White", "Scania", 80, 10000);
+Bus bus1 = new("UUU333", 6, "White", "Scania", 80, 10000);
 Bus bus2 = new("MKS876", 4, "Gray", "Mercedes", 16, 2000);
 
 Console.WriteLine(car2);

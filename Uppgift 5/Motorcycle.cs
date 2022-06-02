@@ -22,7 +22,7 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return base.ToString() + $"Top speed: {TopSpeed, 3}, Type: {Type.ToString(), 10}, Subtype: {subType.ToString()}";
+            return base.ToString() + $"Speed: {TopSpeed, 3}, Type: {Type.ToString(), 10}, Subtype: {subType.ToString()}";
         }
     }
 }

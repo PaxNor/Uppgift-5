@@ -33,14 +33,28 @@ namespace Uppgift_5
 
         private const string prompt = "> ";
 
-        private void CommandPrompt() {
+        private void CommandPrompt(Garage<Vehicle> garage) {
+
+            List<Vehicle>? result = null;
+            string error = "Valid properties are: plate, wheels, color, type and brand";
             string input;
 
             while(true) {
                 Console.Write(prompt);
                 input = Console.ReadLine();
                 if (input == "exit") break;
-                parser.Parse(input);
+
+                var queries = parser.Parse(input);
+                if (queries == null) Console.WriteLine(error);
+                else {
+                    result = garageHandler.SearchByProperty(garage, queries);
+                    if (result == null) Console.WriteLine(error);
+                    else {
+                        foreach (Vehicle vehicle in result) {
+                            Console.WriteLine(vehicle);
+                        }
+                    }
+                }
             }
         }
 
@@ -97,8 +111,9 @@ namespace Uppgift_5
                         break;
 
                     case "6":
+                        // done
                         Console.WriteLine(subMenu);
-                        CommandPrompt();
+                        CommandPrompt(garage);
                         break;
 
                     case "7":
@@ -115,9 +130,6 @@ namespace Uppgift_5
                         break;
                 }
 
-                Console.Write("Hit any key to continue.. ");
-                Console.ReadKey();
-                Console.Clear();
             }
         }
 

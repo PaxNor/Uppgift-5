@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5
 {
-    internal class Garage<T> where T : Vehicle
+    internal class Garage<T> : IEnumerable<T> where T : Vehicle
+    //internal class Garage<T> where T : Vehicle
     {
         private T[] parkingSpot;
         private readonly uint capacity;
@@ -31,11 +33,13 @@ namespace Uppgift_5
             this.capacity = capacity;
         }
 
-        public IEnumerator<Vehicle> GetEnumerator() {
-            foreach (Vehicle v in this.parkingSpot) {
-                if(v != null) yield return v;
+        public IEnumerator<T> GetEnumerator() {
+            foreach (T v in this.parkingSpot) {
+                if (v != null) yield return v;
             }
         }
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
         // Adds vehicle to garage. Returns true if successful or null if garage is full
         public bool Add(T vehicle) {

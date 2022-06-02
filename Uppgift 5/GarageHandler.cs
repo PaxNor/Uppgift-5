@@ -45,5 +45,40 @@ namespace Uppgift_5
             string plateFormat = CompactUserString(plateNr);
             return garage.RemoveVehicle(plateFormat);
         }
+
+        public List<Vehicle>? SearchByProperty(Garage<Vehicle> garage, List<string[]> queries) {
+
+            var q = garage.Select(p => p);
+
+            foreach (var query in queries) {
+                switch (query[0]) {
+
+                    case "plate":
+                        q = q.Where(p => p.LicensePlateNr == query[1]);
+                        break;
+
+                    case "color":
+                        q = q.Where(p => p.Color == query[1]);
+                        break;
+
+                    case "wheels":
+                        q = q.Where(p => p.WheelCount.ToString() == query[1]);
+                        break;
+
+                    case "brand":
+                        q = q.Where(p => p.Brand == query[1]);
+                        break;
+
+                    case "type":
+                        q = q.Where(p => p.Type.ToString() == query[1]);
+                        break;
+
+                    default:
+                        // maybe throw exception instead?
+                        return null;
+                }
+            }
+            return q.ToList();
+        }
     }
 }
