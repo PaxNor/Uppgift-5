@@ -69,8 +69,8 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
-                        Vehicle vehicle = this.CreateVehicle();
-                        if(garageHandler.AddVehicle(garage, vehicle) == false) {
+                        Vehicle vv = this.CreateVehicle();
+                        if(garageHandler.AddVehicle(garage, vv) == false) {
                             Console.WriteLine("Garage is full");
                         }
                         break;
