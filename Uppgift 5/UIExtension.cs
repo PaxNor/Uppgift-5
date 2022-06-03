@@ -40,36 +40,14 @@ namespace Uppgift_5
             return result;
         }
 
-        private static bool validateVehicleType(string type) {
-            switch(type.ToLower()) {
-                case "car":         return true;
-                case "bus":         return true;
-                case "motorcycle":  return true;
-                case "boat":        return true;
-                case "airplane":    return true;
-            }
-            return false;
-        }
-
         public static void AddVehicle(this UI ui) {
 
-            string type;
-            string licensePlate;
-            string color;
-            string brand;
-            string wheelCount;
+            string type = runUserDialog("Enter vehicle type: ", "car", "bus", "motorcycle", "boat", "airplane");
+            string licensePlate = runUserDialog("Enter license plate: ");
+            string color = runUserDialog("Enter color: ");
+            string brand = runUserDialog("Enter brand: ");
+            string wheelCount = runUserDialog("Enter wheel count: ");
             string subType;
-
-            type = runUserDialog("Enter vehicle type: ");
-            if (validateVehicleType(type) == false) {
-                Console.WriteLine("Invalid vehicle type");
-                return;
-            }
-
-            licensePlate = runUserDialog("Enter license plate: ");
-            color = runUserDialog("Enter color: ");
-            brand = runUserDialog("Enter brand: ");
-            wheelCount = runUserDialog("Enter wheel count: ");
 
             switch (type.ToLower()) {
 
