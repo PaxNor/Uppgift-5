@@ -46,7 +46,7 @@ namespace Uppgift_5
                 if (queries == null) Console.WriteLine(error);
                 else if (queries[0].Length == 0) { } // ignores empty lines
                 else {
-                    result = garageHandler.SearchByProperty(garage, queries);
+                    result = garageHandler.SearchByProperty(queries);
                     if (result == null) Console.WriteLine(error);
                     else if (result.Count == 0) Console.WriteLine("No match");
                     else result.ForEach(p => Console.WriteLine(p));
@@ -76,16 +76,19 @@ namespace Uppgift_5
 
         // experimental
         public void Start(Garage<Vehicle> garage) {
+            garageHandler.InitWithGarage(garage); // <-- temporary hack!
+            NUI nui = new(); // <-- temporary hack!
             isRunning = true;
 
             while(isRunning) {
                 Console.WriteLine(mainMenu);
-                choice = Console.ReadLine();
+                choice = Console.ReadLine(); // Can be: choice = UI.MainMenuPicker(); done
 
                 switch (choice) {
                     case "1":
+                        // TODO
                         Vehicle vehicle = this.CreateVehicle();
-                        if (garageHandler.AddVehicle(garage, vehicle) == false) {
+                        if (garageHandler.AddVehicle(vehicle) == false) { 
                             Console.WriteLine("Garage is full");
                         }
                         else {
@@ -94,42 +97,54 @@ namespace Uppgift_5
                         break;
 
                     case "2":
-                        stats = garageHandler.GetStats(garage);
-                        foreach (var stat in stats) {
-                            Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
-                        }
+                        nui.ShowStats(garageHandler);
+
+                        //stats = garageHandler.GetStats(); // UI.GetStats(garageHandler);
+                        //foreach (var stat in stats) {
+                        //    Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
+                        //}
                         break;
 
                     case "3":
-                        Console.Write("Enter license plate number: ");
-                        string plate = Console.ReadLine();
-                        bool found = garageHandler.FindVehicle(garage, plate);
-                        if(found) Console.WriteLine($"Vehicle {plate} is in garage");
-                        else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
+                        nui.FindVehicle(garageHandler);
+
+                        //Console.Write("Enter license plate number: "); // UI.FindVehicle(garageHandler);
+                        //string plate = Console.ReadLine();
+                        //bool found = garageHandler.FindVehicle(plate);
+                        //if(found) Console.WriteLine($"Vehicle {plate} is in garage");
+                        //else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
 
                         break;
                         
                     case "4":
-                        Console.Write("Enter license plate number: ");
-                        plate = Console.ReadLine();
-                        vehicle = garageHandler.RemoveVehicle(garage, plate);
-                        if(vehicle != null) Console.WriteLine($"Vehicle {plate} removed from garage");
-                        else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
+                        nui.RemoveVehicle(garageHandler);
+
+                        //Console.Write("Enter license plate number: "); // UI.RemoveVehicle(garageHandler);
+                        //string plate = Console.ReadLine();
+                        //vehicle = garageHandler.RemoveVehicle(plate);
+                        //if(vehicle != null) Console.WriteLine($"Vehicle {plate} removed from garage");
+                        //else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
                         break;
 
                     case "5":
-                        foreach(Vehicle v in garage) {
-                            Console.WriteLine(v);
-                        }
+                        garageHandler.ListVehicles(nui);
+
+                        //foreach(Vehicle v in garage) { // garageHandler.ListVehicles(UI);
+                        //    Console.WriteLine(v);
+                        //}
                         break;
 
                     case "6":
-                        Console.WriteLine(subMenu);
-                        CommandPrompt(garage);
+                        nui.SearchByProperty(garageHandler);
+
+                        //Console.WriteLine(subMenu); // UI.CommandPrompt(garageHandler);
+                        //CommandPrompt(garage);
                         break;
 
                     case "7":
-                        Console.WriteLine($"Available parking spots: {garage.FreeSpace()}");
+                        nui.ShowFreeSpace(garageHandler);
+
+                        //Console.WriteLine($"Available parking spots: {garage.FreeSpace()}"); // UI.ShowFreeSpace(garageHandler);
                         break;
 
                     case "8":

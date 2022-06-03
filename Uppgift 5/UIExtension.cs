@@ -10,6 +10,8 @@ namespace Uppgift_5
      * Added this as an extension to the UI class since
      * it takes up a lot of space while only dealing with
      * creating and validating the creation of a vehicle.
+     * 
+     * This may be moved into the UI class eventually..
      */
 
     internal static class UIExtension
