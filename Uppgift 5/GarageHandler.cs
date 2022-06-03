@@ -46,7 +46,21 @@ namespace Uppgift_5
             return garage.RemoveVehicle(plateFormat);
         }
 
+        // Add new vehicle to garage. - TODO: fix how this is done, the UI should not hold reference to garage.
         public bool AddVehicle(Garage<Vehicle> garage, Vehicle vehicle) => garage.Add(vehicle);
+
+        // Create a new garage
+        public Object? CreateNewGarage(VehicleType type, uint capacity) {
+            switch (type) {
+                case VehicleType.Car: return new Garage<Car>(capacity);
+                case VehicleType.Bus: return new Garage<Bus>(capacity);
+                case VehicleType.Motorcycle: return new Garage<Motorcycle>(capacity);
+                case VehicleType.Boat: return new Garage<Boat>(capacity);
+                case VehicleType.Airplane: return new Garage<Airplane>(capacity);
+                case VehicleType.Vehicle: return new Garage<Vehicle>(capacity);
+            }
+            return null;
+        }
 
         public List<Vehicle>? SearchByProperty(Garage<Vehicle> garage, List<string[]> queries) {
 

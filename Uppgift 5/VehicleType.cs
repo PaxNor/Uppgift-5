@@ -18,7 +18,8 @@ namespace Uppgift_5
         Motorcycle,
         Bus,
         Airplane,
-        Boat
+        Boat,
+        Vehicle
     }
 }
 

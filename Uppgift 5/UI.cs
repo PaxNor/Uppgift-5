@@ -32,7 +32,6 @@ namespace Uppgift_5
 
         private void CommandPrompt(Garage<Vehicle> garage) {
 
-            QueryParser parser = new QueryParser();
             List<Vehicle>? result = null;
             const string error = "Valid properties are: plate, wheels, color, type and brand";
             const string prompt = "> ";
@@ -43,7 +42,7 @@ namespace Uppgift_5
                 input = Console.ReadLine();
                 if (input == "exit") break;
 
-                var queries = parser.Parse(input);
+                var queries = IOUtil.ParseQuery(input);
                 if (queries == null) Console.WriteLine(error);
                 else if (queries[0].Length == 0) { } // ignores empty lines
                 else {
@@ -53,6 +52,22 @@ namespace Uppgift_5
                     else result.ForEach(p => Console.WriteLine(p));
                 }
             }
+        }
+
+        // TODO: return type is temporary a garage reference should not exist in the UI class.
+        private Object? AddGarage() { 
+            uint capacity = IOUtil.runUserDialogNumeric("Enter capacity of new garage: ");
+            string garageType = IOUtil.runUserDialog("Enter garage type (car, bus, boat, motorcycle, airplane or all): ",
+                                                        "car", "bus", "boat", "motorcycle", "airplane", "all");
+            switch (garageType.ToLower()) {
+                case "all":         return garageHandler.CreateNewGarage(VehicleType.Vehicle, capacity);
+                case "car":         return garageHandler.CreateNewGarage(VehicleType.Car, capacity);
+                case "bus":         return garageHandler.CreateNewGarage(VehicleType.Bus, capacity);
+                case "motorcycle":  return garageHandler.CreateNewGarage(VehicleType.Motorcycle, capacity);
+                case "boat":        return garageHandler.CreateNewGarage(VehicleType.Boat, capacity);
+                case "airplane":    return garageHandler.CreateNewGarage(VehicleType.Airplane, capacity);
+            }
+            return null;
         }
 
         public UI() {
@@ -69,9 +84,12 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
-                        Vehicle vv = this.CreateVehicle();
-                        if(garageHandler.AddVehicle(garage, vv) == false) {
+                        Vehicle vehicle = this.CreateVehicle();
+                        if (garageHandler.AddVehicle(garage, vehicle) == false) {
                             Console.WriteLine("Garage is full");
+                        }
+                        else {
+                            Console.WriteLine("Vehicle added");
                         }
                         break;
 
@@ -94,7 +112,7 @@ namespace Uppgift_5
                     case "4":
                         Console.Write("Enter license plate number: ");
                         plate = Console.ReadLine();
-                        var vehicle = garageHandler.RemoveVehicle(garage, plate);
+                        vehicle = garageHandler.RemoveVehicle(garage, plate);
                         if(vehicle != null) Console.WriteLine($"Vehicle {plate} removed from garage");
                         else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
                         break;
