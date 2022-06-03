@@ -54,7 +54,7 @@ namespace Uppgift_5
             return result;
         }
 
-        public static void AddVehicle(this UI ui) {
+        public static Vehicle CreateVehicle(this UI ui) {
 
             string type = runUserDialog("Enter vehicle type: ", "car", "bus", "motorcycle", "boat", "airplane");
             string licensePlate = runUserDialog("Enter license plate: ");
@@ -67,30 +67,27 @@ namespace Uppgift_5
 
                 case "car":
                     subType = runUserDialog("Enter model (sedan, coupe, pickup suv): ", "sedan", "coupe", "pickup", "suv");
-                    // create car
-                    break;
+                    Car.SubType carType = (Car.SubType)Enum.Parse(typeof(Car.SubType), subType, true);
+                    return new Car(licensePlate, wheelCount, color, brand, carType);
 
                 case "bus":
-                    string seatCount = runUserDialog("Enter seat count: ");
+                    uint seatCount = runUserDialogNumeric("Enter seat count: ");
                     uint weight = runUserDialogNumeric("Enter weight: ");
-                    // create bus
-                    break;
+                    return new Bus(licensePlate, wheelCount, color, brand, seatCount, weight);
 
                 case "motorcycle":
                     subType = runUserDialog("Enter model (offroad, sport, classic): ", "offroad", "sport", "classic");
                     uint speed = runUserDialogNumeric("Enter top speed: ");
-                    // create motorcycle
-                    break;
+                    Motorcycle.SubType motorcycleType = (Motorcycle.SubType)Enum.Parse(typeof(Motorcycle.SubType), subType, true);
+                    return new Motorcycle(licensePlate, wheelCount, color, brand, speed, motorcycleType);
 
                 case "boat":
                     uint length = runUserDialogNumeric("Enter length: ");
-                    // create boat
-                    break;
+                    return new Boat(licensePlate, wheelCount, color, brand, length);
 
                 case "airplane":
                     uint wingspan = runUserDialogNumeric("Enter wingspan: ");
-                    // create airplane
-                    break;
+                    return new Airplane(licensePlate, wheelCount, color, brand, wingspan);
 
                 default:
                     // this can't happen

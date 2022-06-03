@@ -8,9 +8,9 @@ namespace Uppgift_5
 {
     internal class Airplane : Vehicle
     {
-        public int Wingspan { get; }
+        public uint Wingspan { get; }
 
-        public Airplane(string licensePlateNr, uint wheelCount, string color, string brand, int wingspan)
+        public Airplane(string licensePlateNr, uint wheelCount, string color, string brand, uint wingspan)
             : base(licensePlateNr, wheelCount, color, brand) {
             Wingspan = wingspan;
             base.Type = VehicleType.Airplane;

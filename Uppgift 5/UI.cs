@@ -69,9 +69,10 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
-                        // TODO
-                        //Console.WriteLine("Park vehicle");
-                        this.AddVehicle();
+                        Vehicle vehicle = this.CreateVehicle();
+                        if(garageHandler.AddVehicle(garage, vehicle) == false) {
+                            Console.WriteLine("Garage is full");
+                        }
                         break;
 
                     case "2":

@@ -46,6 +46,8 @@ namespace Uppgift_5
             return garage.RemoveVehicle(plateFormat);
         }
 
+        public bool AddVehicle(Garage<Vehicle> garage, Vehicle vehicle) => garage.Add(vehicle);
+
         public List<Vehicle>? SearchByProperty(Garage<Vehicle> garage, List<string[]> queries) {
 
             var q = garage.Select(p => p);

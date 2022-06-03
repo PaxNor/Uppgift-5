@@ -8,10 +8,10 @@ namespace Uppgift_5
 {
     internal class Bus : Vehicle
     {
-        public int SeatCount { get; set; }
-        public int Weight { get; set; }
+        public uint SeatCount { get; set; }
+        public uint Weight { get; set; }
 
-        public Bus(string licensePlateNr, uint wheelCount, string color, string brand, int seatCount, int weight)
+        public Bus(string licensePlateNr, uint wheelCount, string color, string brand, uint seatCount, uint weight)
             : base(licensePlateNr, wheelCount, color, brand) {
             SeatCount = seatCount;
             Weight = weight;
