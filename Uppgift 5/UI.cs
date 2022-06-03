@@ -45,7 +45,7 @@ namespace Uppgift_5
 
                 var queries = parser.Parse(input);
                 if (queries == null) Console.WriteLine(error);
-                else if (queries[0].Length == 0) { } // ignore empty lines
+                else if (queries[0].Length == 0) { } // ignores empty lines
                 else {
                     result = garageHandler.SearchByProperty(garage, queries);
                     if (result == null) Console.WriteLine(error);
@@ -70,7 +70,8 @@ namespace Uppgift_5
                 switch (choice) {
                     case "1":
                         // TODO
-                        Console.WriteLine("Park vehicle");
+                        //Console.WriteLine("Park vehicle");
+                        this.AddVehicle();
                         break;
 
                     case "2":
