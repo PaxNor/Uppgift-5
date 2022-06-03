@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5
 {
+
     internal class QueryParser
     {
         // syntax: property1 value1, property2 value2, property3 value3
@@ -21,6 +22,12 @@ namespace Uppgift_5
 
             foreach (string pair in pairs) {
                 string[] keyValue = pair.Split(' ', splitOptions);
+
+                // ignore empty lines
+                if (keyValue.Length == 0) {
+                    queries.Add(keyValue);
+                    return queries;
+                }
 
                 if (keyValue.Length != 2) return null;
                 else queries.Add(keyValue);

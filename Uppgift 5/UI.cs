@@ -10,7 +10,6 @@ namespace Uppgift_5
     {
         private bool isRunning;
         private string choice;
-        private QueryParser parser;
         private GarageHandler garageHandler;
         private Dictionary<VehicleType, int> stats;
 
@@ -31,12 +30,12 @@ namespace Uppgift_5
             "Type \'exit\' to exit to main menu.\n\n" +
             "Example: color black, wheels 3, brand Volvo";
 
-        private const string prompt = "> ";
-
         private void CommandPrompt(Garage<Vehicle> garage) {
 
+            QueryParser parser = new QueryParser();
             List<Vehicle>? result = null;
-            string error = "Valid properties are: plate, wheels, color, type and brand";
+            const string error = "Valid properties are: plate, wheels, color, type and brand";
+            const string prompt = "> ";
             string input;
 
             while(true) {
@@ -46,20 +45,17 @@ namespace Uppgift_5
 
                 var queries = parser.Parse(input);
                 if (queries == null) Console.WriteLine(error);
+                else if (queries[0].Length == 0) { } // ignore empty lines
                 else {
                     result = garageHandler.SearchByProperty(garage, queries);
                     if (result == null) Console.WriteLine(error);
-                    else {
-                        foreach (Vehicle vehicle in result) {
-                            Console.WriteLine(vehicle);
-                        }
-                    }
+                    else if (result.Count == 0) Console.WriteLine("No match");
+                    else result.ForEach(p => Console.WriteLine(p));
                 }
             }
         }
 
         public UI() {
-            parser = new QueryParser();
             garageHandler = new GarageHandler();
         }
 
@@ -73,11 +69,11 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
+                        // TODO
                         Console.WriteLine("Park vehicle");
                         break;
 
                     case "2":
-                        // done
                         stats = garageHandler.GetStats(garage);
                         foreach (var stat in stats) {
                             Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
@@ -85,7 +81,6 @@ namespace Uppgift_5
                         break;
 
                     case "3":
-                        // done
                         Console.Write("Enter license plate number: ");
                         string plate = Console.ReadLine();
                         bool found = garageHandler.FindVehicle(garage, plate);
@@ -95,7 +90,6 @@ namespace Uppgift_5
                         break;
                         
                     case "4":
-                        // done
                         Console.Write("Enter license plate number: ");
                         plate = Console.ReadLine();
                         var vehicle = garageHandler.RemoveVehicle(garage, plate);
@@ -104,20 +98,17 @@ namespace Uppgift_5
                         break;
 
                     case "5":
-                        // done
                         foreach(Vehicle v in garage) {
                             Console.WriteLine(v);
                         }
                         break;
 
                     case "6":
-                        // done
                         Console.WriteLine(subMenu);
                         CommandPrompt(garage);
                         break;
 
                     case "7":
-                        // done
                         Console.WriteLine($"Available parking spots: {garage.FreeSpace()}");
                         break;
 
@@ -126,7 +117,7 @@ namespace Uppgift_5
                         break;
 
                     default:
-                        Console.Clear();
+                        Console.WriteLine("Invalid choice");
                         break;
                 }
 

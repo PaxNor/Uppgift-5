@@ -59,3 +59,11 @@ foreach (Vehicle spot in garage) {
 UI ui = new();
 ui.Start(garage);
 
+
+// test
+Garage<Vehicle> garage2 = new(10) {
+    new Car("ABC123", 4, "Green", "Ford", Car.SubType.sedan),
+    new Car("ABC123", 4, "Green", "Fiat", Car.SubType.sedan),
+    new Car("ABC123", 4, "Green", "Volvo", Car.SubType.sedan),
+    new Car("ABC123", 4, "Green", "Saab", Car.SubType.sedan)
+};
