@@ -8,6 +8,8 @@ namespace Uppgift_5
 {
     internal class GarageHandler
     {
+        private Garage<Vehicle>? garaget;
+
         // removes white space and convert to upper case
         private string CompactUserString(string userString) {
             StringBuilder sb = new StringBuilder();
@@ -52,12 +54,12 @@ namespace Uppgift_5
         // Create a new garage
         public Object? CreateNewGarage(VehicleType type, uint capacity) {
             switch (type) {
-                case VehicleType.Car: return new Garage<Car>(capacity);
-                case VehicleType.Bus: return new Garage<Bus>(capacity);
-                case VehicleType.Motorcycle: return new Garage<Motorcycle>(capacity);
-                case VehicleType.Boat: return new Garage<Boat>(capacity);
-                case VehicleType.Airplane: return new Garage<Airplane>(capacity);
-                case VehicleType.Vehicle: return new Garage<Vehicle>(capacity);
+                case VehicleType.Car:           return new Garage<Car>(capacity);
+                case VehicleType.Bus:           return new Garage<Bus>(capacity);
+                case VehicleType.Motorcycle:    return new Garage<Motorcycle>(capacity);
+                case VehicleType.Boat:          return new Garage<Boat>(capacity);
+                case VehicleType.Airplane:      return new Garage<Airplane>(capacity);
+                case VehicleType.Vehicle:       return new Garage<Vehicle>(capacity);
             }
             return null;
         }

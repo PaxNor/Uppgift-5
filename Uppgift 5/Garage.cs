@@ -19,7 +19,8 @@ namespace Uppgift_5
         private int FindParkingSpot(string licensePlateNr) {
             for (int i = 0; i < capacity; i++) {
                 if (parkingSpot[i] != null) {
-                    if (parkingSpot[i].LicensePlateNr == licensePlateNr) {
+                    if (parkingSpot[i].LicensePlateNr == licensePlateNr) 
+                    {
                         return i;
                     }
                 }
@@ -60,6 +61,8 @@ namespace Uppgift_5
         public Vehicle? FindVehicle(string licensePlateNr) {
             int spot = FindParkingSpot(licensePlateNr);
             return spot == -1 ? null : parkingSpot[spot];
+
+            //return parkingSpot.FirstOrDefault(v => v.LicensePlateNr == licensePlateNr);
         }
 
         // removes vehicle from garage and returns it or null if not found
@@ -70,7 +73,18 @@ namespace Uppgift_5
             removed = parkingSpot[spot];
             parkingSpot.SetValue(null, spot); // can not set directly without warning?!
             occupancy--;
-            return removed;
+            return removed;          
+        }
+
+        public bool RemoveVehicle2(string licensePlateNr) {
+            for (var i = 0; i < parkingSpot.Length; i++) {
+                if (parkingSpot[i].LicensePlateNr == licensePlateNr) {
+                    parkingSpot[i] = null;
+                    occupancy--;
+                    return true;
+                }
+            }
+            return false;
         }
 
         public uint FreeSpace() {
