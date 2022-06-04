@@ -91,7 +91,7 @@ namespace Uppgift_5
             return q.ToList();
         }
 
-        public void ListVehicles(UI ui) { // TODO: change NUI ref to UI
+        public void ListVehicles(UI ui) { 
             foreach (Vehicle v in garage) {
                 ui.PrintObject(v);
             }
