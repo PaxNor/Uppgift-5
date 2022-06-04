@@ -9,6 +9,17 @@ namespace Uppgift_5
 
     static class IOUtil
     {
+        // removes white space and convert to upper case
+        public static string CompactUserString(string userString) {
+            StringBuilder sb = new StringBuilder();
+            foreach (char c in userString) {
+                if (char.IsWhiteSpace(c) == false) {
+                    sb.Append(c);
+                }
+            }
+            return sb.ToString().ToUpper();
+        }
+
         // syntax: property1 value1, property2 value2, property3 value3
         // returns: list of key/value pairs in string arrays
         public static List<string[]>? ParseQuery(string input) {

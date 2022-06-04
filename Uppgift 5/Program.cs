@@ -56,14 +56,16 @@ foreach (Vehicle spot in garage) {
 }
 
 // 1st test of UI
-UI ui = new();
+Manager ui = new();
 ui.Start(garage);
 
 
-// test
+// test // alternative constructor new(10, "Garage A");
 Garage<Vehicle> garage2 = new(10) {
     new Car("ABC123", 4, "Green", "Ford", Car.SubType.sedan),
     new Car("ABC123", 4, "Green", "Fiat", Car.SubType.sedan),
     new Car("ABC123", 4, "Green", "Volvo", Car.SubType.sedan),
     new Car("ABC123", 4, "Green", "Saab", Car.SubType.sedan)
 };
+
+// Skapa en DemoGarageGenerator klass

@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace Uppgift_5
 {
     internal abstract class Vehicle
-    {
-        // x. registreringsnummer, färg, antal hjul och andra egenskaper ni kan komma på.
+    { 
         public string LicensePlateNr { get; }
         public uint WheelCount { get; }
         public string Color { get; }

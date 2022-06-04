@@ -10,17 +10,6 @@ namespace Uppgift_5
     {
         private Garage<Vehicle>? garage;
 
-        // removes white space and convert to upper case
-        private string CompactUserString(string userString) {
-            StringBuilder sb = new StringBuilder();
-            foreach (char c in userString) {
-                if (char.IsWhiteSpace(c) == false) {
-                    sb.Append(c);
-                }
-            }
-            return sb.ToString().ToUpper();
-        }
-
         public Dictionary<VehicleType, int> GetStats() {
             Dictionary<VehicleType, int> stats = new();
             VehicleType type;
@@ -37,28 +26,24 @@ namespace Uppgift_5
             return stats;
         }
 
-        // temporary hack
+        // temporary hack!
         public void InitWithGarage(Garage<Vehicle> garage) {
             this.garage = garage;
         }
 
-        //public bool FindVehicle(Garage<Vehicle> garage, string plateNr) {
         public bool FindVehicle(string plateNr) {
-            string plateFormat = CompactUserString(plateNr);
+            string plateFormat = IOUtil.CompactUserString(plateNr);
             var vehicle = garage.FindVehicle(plateFormat);
             return vehicle == null ? false : true;
         }
 
-        //public Vehicle? RemoveVehicle(Garage<Vehicle> garage, string plateNr) {
         public Vehicle? RemoveVehicle(string plateNr) {
-            string plateFormat = CompactUserString(plateNr);
+            string plateFormat = IOUtil.CompactUserString(plateNr);
             return garage.RemoveVehicle(plateFormat);
         }
 
-        //public bool AddVehicle(Garage<Vehicle> garage, Vehicle vehicle) => garage.Add(vehicle);
         public bool AddVehicle(Vehicle vehicle) => garage.Add(vehicle);
 
-        // Create a new garage
         public Object? CreateNewGarage(VehicleType type, uint capacity) {
             switch (type) {
                 case VehicleType.Car:           return new Garage<Car>(capacity);
@@ -71,7 +56,6 @@ namespace Uppgift_5
             return null;
         }
 
-        //public List<Vehicle>? SearchByProperty(Garage<Vehicle> garage, List<string[]> queries) {
         public List<Vehicle>? SearchByProperty(List<string[]> queries) {
 
             var q = garage.Select(p => p);
@@ -107,13 +91,12 @@ namespace Uppgift_5
             return q.ToList();
         }
 
-        public void ListVehicles(NUI ui) { // TODO: change NUI ref to UI
+        public void ListVehicles(UI ui) { // TODO: change NUI ref to UI
             foreach (Vehicle v in garage) {
                 ui.PrintObject(v);
             }
         }
 
-        //public uint FreeSpace(Garage<Vehicle> garage) {
         public uint FreeSpace() {
             return garage.FreeSpace();
         }
