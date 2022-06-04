@@ -4,25 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uppgift_5
+namespace Uppgift_5.Vehicles
 {
     internal class Motorcycle : Vehicle
     {
         public enum SubType { sport, offroad, classic };
 
         public uint TopSpeed { get; }
-        private SubType subType; 
+        private SubType subType;
 
         public Motorcycle(string licensePlateNr, uint wheelCount, string color, string brand, uint topspeed, SubType subType)
-            : base(licensePlateNr, wheelCount, color, brand) 
-        {
+            : base(licensePlateNr, wheelCount, color, brand) {
             TopSpeed = topspeed;
-            base.Type = VehicleType.Motorcycle;
+            Type = VehicleType.Motorcycle;
             this.subType = subType;
         }
 
         public override string ToString() {
-            return base.ToString() + $"Speed: {TopSpeed, 3}, Type: {Type.ToString(), 10}, Subtype: {subType.ToString()}";
+            return base.ToString() + $"Speed: {TopSpeed,3}, Type: {Type.ToString(),10}, Subtype: {subType.ToString()}";
         }
     }
 }

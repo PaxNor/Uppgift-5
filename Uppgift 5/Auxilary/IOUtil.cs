@@ -4,7 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uppgift_5
+/*
+ * Hanterar användar io, validering, parsning och 
+ * formatering av strängar från användaren.
+ */
+
+namespace Uppgift_5.Auxilary
 {
 
     static class IOUtil

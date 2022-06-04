@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uppgift_5
+namespace Uppgift_5.Vehicles
 {
     internal class Bus : Vehicle
     {
@@ -15,11 +15,11 @@ namespace Uppgift_5
             : base(licensePlateNr, wheelCount, color, brand) {
             SeatCount = seatCount;
             Weight = weight;
-            base.Type = VehicleType.Bus;
+            Type = VehicleType.Bus;
         }
 
         public override string ToString() {
-            return base.ToString() + $"Seats: {SeatCount, 3}, Weight: {Weight, 4}, Type: {Type.ToString(), 10}";
+            return base.ToString() + $"Seats: {SeatCount,3}, Weight: {Weight,4}, Type: {Type.ToString(),10}";
         }
     }
 }

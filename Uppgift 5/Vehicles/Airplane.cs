@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uppgift_5
+namespace Uppgift_5.Vehicles
 {
     internal class Airplane : Vehicle
     {
@@ -13,11 +13,11 @@ namespace Uppgift_5
         public Airplane(string licensePlateNr, uint wheelCount, string color, string brand, uint wingspan)
             : base(licensePlateNr, wheelCount, color, brand) {
             Wingspan = wingspan;
-            base.Type = VehicleType.Airplane;
+            Type = VehicleType.Airplane;
         }
 
         public override string ToString() {
-            return base.ToString() + $"Wingspan: {Wingspan, 3}, Type: {Type.ToString(), 10}";
+            return base.ToString() + $"Wingspan: {Wingspan,3}, Type: {Type.ToString(),10}";
         }
 
     }

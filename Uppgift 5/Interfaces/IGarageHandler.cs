@@ -1,4 +1,6 @@
-﻿namespace Uppgift_5.Interfaces
+﻿using Uppgift_5.Vehicles;
+
+namespace Uppgift_5.Interfaces
 {
     internal interface IGarageHandler
     {

@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uppgift_5.Vehicles;
 
 /*
  * Skapar ett garage fullt med fordon i demo syfte
  */
 
-namespace Uppgift_5
-{   
+namespace Uppgift_5.Auxilary
+{
     internal static class DemoGarage
     {
         public static Garage<Vehicle> Generate() {

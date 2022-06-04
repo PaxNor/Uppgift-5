@@ -10,7 +10,7 @@ using System.Threading.Tasks;
  * fields does not exist yet in the vehicle subclasses.
  */
 
-namespace Uppgift_5
+namespace Uppgift_5.Vehicles
 {
     internal enum VehicleType
     {

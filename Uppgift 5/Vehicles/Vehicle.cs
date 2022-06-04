@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Uppgift_5
+namespace Uppgift_5.Vehicles
 {
     internal abstract class Vehicle
-    { 
+    {
         public string LicensePlateNr { get; }
         public uint WheelCount { get; }
         public string Color { get; }
@@ -22,10 +22,10 @@ namespace Uppgift_5
         }
 
         public override string ToString() {
-            return $"Plate Nr: {LicensePlateNr, 7}, " +
-                   $"Wheels: {WheelCount, 2}, " +
-                   $"Color: {Color, 7}, " +
-                   $"Brand: {Brand, 9}, ";
+            return $"Plate Nr: {LicensePlateNr,7}, " +
+                   $"Wheels: {WheelCount,2}, " +
+                   $"Color: {Color,7}, " +
+                   $"Brand: {Brand,9}, ";
         }
     }
 }
