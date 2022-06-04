@@ -10,17 +10,17 @@ namespace Uppgift_5
     {
         private bool isRunning;
         private string? choice;
-        private GarageHandler garageHandler;
+        private GarageHandler handler;
         private UI ui;
 
         public Manager() {
-            garageHandler = new GarageHandler();
+            handler = new GarageHandler();
             ui = new UI();
         }
 
         public void Start(Garage<Vehicle> garage) {
 
-            garageHandler.InitWithGarage(garage); // <-- temporary hack?
+            handler.InitWithGarage(garage); // <-- temporary hack?
             isRunning = true;
 
             while(isRunning) {
@@ -28,31 +28,31 @@ namespace Uppgift_5
 
                 switch (choice) {
                     case "1":
-                        ui.ParkVehicle(garageHandler);
+                        ui.ParkVehicle(handler);
                         break;
 
                     case "2":
-                        ui.ShowStats(garageHandler);
+                        ui.ShowStats(handler);
                         break;
 
                     case "3":
-                        ui.FindVehicle(garageHandler);
+                        ui.FindVehicle(handler);
                         break;
                         
                     case "4":
-                        ui.RemoveVehicle(garageHandler);
+                        ui.RemoveVehicle(handler);
                         break;
 
                     case "5":
-                        garageHandler.ListVehicles(ui);
+                        handler.ListVehicles(ui);
                         break;
 
                     case "6":
-                        ui.SearchByProperty(garageHandler);
+                        ui.SearchByProperty(handler);
                         break;
 
                     case "7":
-                        ui.ShowFreeSpace(garageHandler);
+                        ui.ShowFreeSpace(handler);
                         break;
 
                     case "8":

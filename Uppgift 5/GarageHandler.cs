@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uppgift_5.Interfaces;
 
 namespace Uppgift_5
 {
-    internal class GarageHandler
+    internal class GarageHandler : IGarageHandler
     {
         private Garage<Vehicle>? garage;
 
@@ -15,11 +16,11 @@ namespace Uppgift_5
             VehicleType type;
 
             foreach (var vehicle in garage) {
-                type  = vehicle.Type;
+                type = vehicle.Type;
 
-                if (stats.ContainsKey(type)) 
+                if (stats.ContainsKey(type))
                     stats[type]++;
-                else 
+                else
                     stats[type] = 1;
             }
 
@@ -46,12 +47,12 @@ namespace Uppgift_5
 
         public Object? CreateNewGarage(VehicleType type, uint capacity) {
             switch (type) {
-                case VehicleType.Car:           return new Garage<Car>(capacity);
-                case VehicleType.Bus:           return new Garage<Bus>(capacity);
-                case VehicleType.Motorcycle:    return new Garage<Motorcycle>(capacity);
-                case VehicleType.Boat:          return new Garage<Boat>(capacity);
-                case VehicleType.Airplane:      return new Garage<Airplane>(capacity);
-                case VehicleType.Vehicle:       return new Garage<Vehicle>(capacity);
+                case VehicleType.Car: return new Garage<Car>(capacity);
+                case VehicleType.Bus: return new Garage<Bus>(capacity);
+                case VehicleType.Motorcycle: return new Garage<Motorcycle>(capacity);
+                case VehicleType.Boat: return new Garage<Boat>(capacity);
+                case VehicleType.Airplane: return new Garage<Airplane>(capacity);
+                case VehicleType.Vehicle: return new Garage<Vehicle>(capacity);
             }
             return null;
         }
@@ -91,7 +92,7 @@ namespace Uppgift_5
             return q.ToList();
         }
 
-        public void ListVehicles(UI ui) { 
+        public void ListVehicles(UI ui) {
             foreach (Vehicle v in garage) {
                 ui.PrintObject(v);
             }

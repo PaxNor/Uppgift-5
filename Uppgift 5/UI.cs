@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uppgift_5.Interfaces;
 
 namespace Uppgift_5
 {
-    internal class UI
+    internal class UI : IUI
     {
         private const string mainMenu =
             "1. Park vehicle\n" +
@@ -134,7 +135,7 @@ namespace Uppgift_5
             else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
         }
 
-        public void SearchByProperty(GarageHandler handler) { 
+        public void SearchByProperty(GarageHandler handler) {
             Console.WriteLine(subMenu);
             CommandPrompt(handler);
         }

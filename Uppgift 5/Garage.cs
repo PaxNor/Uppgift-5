@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uppgift_5.Interfaces;
 
 namespace Uppgift_5
 {
-    internal class Garage<T> : IEnumerable<T> where T : Vehicle
-    //internal class Garage<T> where T : Vehicle
+    internal class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
+        //internal class Garage<T> where T : Vehicle
     {
         private T[] parkingSpot;
         private readonly uint capacity;
@@ -19,8 +20,7 @@ namespace Uppgift_5
         private int FindParkingSpot(string licensePlateNr) {
             for (int i = 0; i < capacity; i++) {
                 if (parkingSpot[i] != null) {
-                    if (parkingSpot[i].LicensePlateNr == licensePlateNr) 
-                    {
+                    if (parkingSpot[i].LicensePlateNr == licensePlateNr) {
                         return i;
                     }
                 }
@@ -47,7 +47,7 @@ namespace Uppgift_5
             if (occupancy == capacity) return false;
 
             // find first empty spot
-            for(int i = 0; i < capacity; i++) {
+            for (int i = 0; i < capacity; i++) {
                 if (parkingSpot[i] == null) {
                     parkingSpot[i] = vehicle;
                     break;
@@ -73,7 +73,7 @@ namespace Uppgift_5
             removed = parkingSpot[spot];
             parkingSpot.SetValue(null, spot); // can not set directly without warning?!
             occupancy--;
-            return removed;          
+            return removed;
         }
 
         public bool RemoveVehicle2(string licensePlateNr) {
