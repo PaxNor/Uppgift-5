@@ -2,7 +2,7 @@
 
 namespace Uppgift_5.Interfaces
 {
-    internal interface IGarage<T> where T : Vehicle
+    internal interface IGarage<T> : IEnumerable<T> where T : Vehicle
     {
         bool Add(T vehicle);
         Vehicle? FindVehicle(string licensePlateNr);

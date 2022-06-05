@@ -28,7 +28,7 @@ namespace Uppgift_5
            "Type \'exit\' to exit to main menu.\n\n" +
            "Example: color black, wheels 3, brand Volvo";
 
-        private void CommandPrompt(GarageHandler handler) {
+        private void CommandPrompt(IGarageHandler handler) {
 
             List<Vehicle>? result = null;
             const string error = "Valid properties are: plate, wheels, color, type and brand";
@@ -106,7 +106,7 @@ namespace Uppgift_5
             return result;
         }
 
-        public void ParkVehicle(GarageHandler handler) {
+        public void ParkVehicle(IGarageHandler handler) {
             Vehicle vehicle = CreateVehicle();
             if (handler.AddVehicle(vehicle) == false) {
                 Console.WriteLine("Garage is full");
@@ -116,33 +116,33 @@ namespace Uppgift_5
             }
         }
 
-        public void ShowStats(GarageHandler handler) {
+        public void ShowStats(IGarageHandler handler) {
             Dictionary<VehicleType, int> stats = handler.GetStats();
             foreach (var stat in stats) {
                 Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
             }
         }
 
-        public void FindVehicle(GarageHandler handler) {
+        public void FindVehicle(IGarageHandler handler) {
             string plate = IOUtil.runUserDialog("Enter license plate number: ");
             bool found = handler.FindVehicle(plate);
             if (found) Console.WriteLine($"Vehicle {plate} is in garage");
             else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
         }
 
-        public void RemoveVehicle(GarageHandler handler) {
+        public void RemoveVehicle(IGarageHandler handler) {
             string plate = IOUtil.runUserDialog("Enter license plate number: ");
             Vehicle? vehicle = handler.RemoveVehicle(plate);
             if (vehicle != null) Console.WriteLine($"Vehicle {plate} removed from garage");
             else Console.WriteLine($"Vehicle with plate nr: {plate} not found.");
         }
 
-        public void SearchByProperty(GarageHandler handler) {
+        public void SearchByProperty(IGarageHandler handler) {
             Console.WriteLine(subMenu);
             CommandPrompt(handler);
         }
 
-        public void ShowFreeSpace(GarageHandler handler) {
+        public void ShowFreeSpace(IGarageHandler handler) {
             Console.WriteLine($"Available parking spots: {handler.FreeSpace()}");
         }
 
@@ -157,7 +157,7 @@ namespace Uppgift_5
 
         // Experimental not used, should perhaps be in GarageHandler. A garage should
         // not be returned to the manager, maybe it should be added inside this method.
-        private Object? AddGarage(GarageHandler handler) {
+        private Object? AddGarage(IGarageHandler handler) {
             uint capacity = IOUtil.runUserDialogNumeric("Enter capacity of new garage: ");
             string garageType = IOUtil.runUserDialog("Enter garage type (car, bus, boat, motorcycle, airplane or all): ",
                                                         "car", "bus", "boat", "motorcycle", "airplane", "all");

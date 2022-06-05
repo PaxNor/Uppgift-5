@@ -11,7 +11,7 @@ namespace Uppgift_5
 {
     internal class GarageHandler : IGarageHandler
     {
-        private Garage<Vehicle>? garage;
+        private IGarage<Vehicle>? garage;
 
         public Dictionary<VehicleType, int> GetStats() {
             Dictionary<VehicleType, int> stats = new();
@@ -30,7 +30,7 @@ namespace Uppgift_5
         }
 
         // temporary hack!
-        public void InitWithGarage(Garage<Vehicle> garage) {
+        public void InitWithGarage(IGarage<Vehicle> garage) {
             this.garage = garage;
         }
 
@@ -94,7 +94,7 @@ namespace Uppgift_5
             return q.ToList();
         }
 
-        public void ListVehicles(UI ui) {
+        public void ListVehicles(IUI ui) {
             foreach (Vehicle v in garage) {
                 ui.PrintObject(v);
             }

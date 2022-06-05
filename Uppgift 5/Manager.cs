@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Uppgift_5.Vehicles;
+using Uppgift_5.Interfaces;
 
 namespace Uppgift_5
 {
@@ -11,8 +12,8 @@ namespace Uppgift_5
     {
         private bool isRunning;
         private string? choice;
-        private GarageHandler handler;
-        private UI ui;
+        private IGarageHandler handler;
+        private IUI ui;
 
         public Manager() {
             handler = new GarageHandler();
@@ -30,6 +31,7 @@ namespace Uppgift_5
                 switch (choice) {
                     case "1":
                         ui.ParkVehicle(handler);
+
                         break;
 
                     case "2":

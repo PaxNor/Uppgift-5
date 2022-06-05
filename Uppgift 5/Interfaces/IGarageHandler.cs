@@ -9,8 +9,8 @@ namespace Uppgift_5.Interfaces
         bool FindVehicle(string plateNr);
         uint FreeSpace();
         Dictionary<VehicleType, int> GetStats();
-        void InitWithGarage(Garage<Vehicle> garage);
-        void ListVehicles(UI ui);
+        void InitWithGarage(IGarage<Vehicle> garage);
+        void ListVehicles(IUI ui);
         Vehicle? RemoveVehicle(string plateNr);
         List<Vehicle>? SearchByProperty(List<string[]> queries);
     }

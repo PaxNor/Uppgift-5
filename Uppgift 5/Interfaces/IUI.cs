@@ -2,14 +2,14 @@
 {
     internal interface IUI
     {
-        void FindVehicle(GarageHandler handler);
+        void FindVehicle(IGarageHandler handler);
         string MenuPicker();
-        void ParkVehicle(GarageHandler handler);
+        void ParkVehicle(IGarageHandler handler);
         void PrintObject(object? message);
-        void RemoveVehicle(GarageHandler handler);
+        void RemoveVehicle(IGarageHandler handler);
         void ReportError(string message);
-        void SearchByProperty(GarageHandler handler);
-        void ShowFreeSpace(GarageHandler handler);
-        void ShowStats(GarageHandler handler);
+        void SearchByProperty(IGarageHandler handler);
+        void ShowFreeSpace(IGarageHandler handler);
+        void ShowStats(IGarageHandler handler);
     }
 }
