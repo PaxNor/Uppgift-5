@@ -7,6 +7,10 @@ using Uppgift_5.Auxilary;
 using Uppgift_5.Interfaces;
 using Uppgift_5.Vehicles;
 
+/*
+ * Hanterar ett garage och implementerar funktionalitet till applikationen
+ */
+
 namespace Uppgift_5
 {
     internal class GarageHandler : IGarageHandler

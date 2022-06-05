@@ -7,6 +7,10 @@ using Uppgift_5.Auxilary;
 using Uppgift_5.Interfaces;
 using Uppgift_5.Vehicles;
 
+/*
+ * Hanterar gränssnitt, skriver ut och tar emot data från terminalen
+ */
+
 namespace Uppgift_5
 {
     internal class UI : IUI

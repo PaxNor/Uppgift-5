@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 using Uppgift_5.Interfaces;
 using Uppgift_5.Vehicles;
 
+/*
+ * Representerar ett garage för Vehicles
+ */
+
 namespace Uppgift_5
 {
     internal class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
