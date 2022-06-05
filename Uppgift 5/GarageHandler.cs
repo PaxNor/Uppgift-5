@@ -67,11 +67,11 @@ namespace Uppgift_5
                 switch (query[0]) {
 
                     case "plate":
-                        q = q.Where(p => p.LicensePlateNr == query[1]);
+                        q = q.Where(p => p.LicensePlateNr == IOUtil.CompactUserString(query[1]));
                         break;
 
                     case "color":
-                        q = q.Where(p => p.Color == query[1]);
+                        q = q.Where(p => IOUtil.NoCaseCompare(p.Color, query[1])); 
                         break;
 
                     case "wheels":
@@ -79,11 +79,11 @@ namespace Uppgift_5
                         break;
 
                     case "brand":
-                        q = q.Where(p => p.Brand == query[1]);
+                        q = q.Where(p => IOUtil.NoCaseCompare(p.Brand, query[1]));
                         break;
 
                     case "type":
-                        q = q.Where(p => p.Type.ToString() == query[1]);
+                        q = q.Where(p => IOUtil.NoCaseCompare(p.Type.ToString(), query[1]));    
                         break;
 
                     default:

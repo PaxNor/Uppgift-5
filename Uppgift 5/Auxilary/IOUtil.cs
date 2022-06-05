@@ -25,8 +25,10 @@ namespace Uppgift_5.Auxilary
             return sb.ToString().ToUpper();
         }
 
+        // parses a string containing a query.
+        //
         // syntax: property1 value1, property2 value2, property3 value3
-        // returns: list of key/value pairs in string arrays
+        // returns: list of key/value pairs in string arrays with two indexes.
         public static List<string[]>? ParseQuery(string input) {
 
             StringSplitOptions splitOptions =
@@ -53,7 +55,7 @@ namespace Uppgift_5.Auxilary
             return queries;
         }
 
-        // performs question - answer user dialog, re-asks on null
+        // performs question / answer user dialog, re-asks on null
         public static string runUserDialog(string output) {
             string? result;
             do {
@@ -93,5 +95,9 @@ namespace Uppgift_5.Auxilary
             return result;
         }
 
+        // performs a case insensitive comparison of two strings
+        public static bool NoCaseCompare(string string1, string string2) {
+            return string1.Equals(string2, StringComparison.CurrentCultureIgnoreCase);
+        }
     }
 }

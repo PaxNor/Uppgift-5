@@ -31,7 +31,6 @@ namespace Uppgift_5
                 switch (choice) {
                     case "1":
                         ui.ParkVehicle(handler);
-
                         break;
 
                     case "2":
