@@ -99,5 +99,15 @@ namespace Uppgift_5.Auxilary
         public static bool NoCaseCompare(string string1, string string2) {
             return string1.Equals(string2, StringComparison.CurrentCultureIgnoreCase);
         }
+
+        // creates correct case for names, first letter capital and the rest lowercase
+        public static string NameCase(string userString) {
+            StringBuilder sb = new StringBuilder();
+            for(int i = 0; i < userString.Length; i++) {
+                if(i == 0) sb.Append(Char.ToUpper(userString[i]));
+                else sb.Append(Char.ToLower(userString[i]));
+            }
+            return sb.ToString();
+        }
     }
 }

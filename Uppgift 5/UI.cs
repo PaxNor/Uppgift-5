@@ -60,6 +60,7 @@ namespace Uppgift_5
             licensePlate = IOUtil.CompactUserString(licensePlate);
             string color = IOUtil.runUserDialog("Enter color: ");
             string brand = IOUtil.runUserDialog("Enter brand: ");
+            brand = IOUtil.NameCase(brand);
             uint wheelCount = IOUtil.runUserDialogNumeric("Enter wheel count: ");
             string subType;
 
