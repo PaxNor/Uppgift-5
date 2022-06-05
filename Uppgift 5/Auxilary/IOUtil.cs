@@ -36,7 +36,6 @@ namespace Uppgift_5.Auxilary
                 StringSplitOptions.RemoveEmptyEntries;
 
             List<string[]> queries = new List<string[]>();
-            //input = input.ToLower();
             string[] pairs = input.Split(',');
 
             foreach (string pair in pairs) {

@@ -10,7 +10,6 @@ using Uppgift_5.Vehicles;
 namespace Uppgift_5
 {
     internal class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
-        //internal class Garage<T> where T : Vehicle
     {
         private T[] parkingSpot;
         private readonly uint capacity;
