@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
-    internal class Car : Vehicle
+    public class Car : Vehicle
     {
 
         public enum SubType { coupe, sedan, convertible, pickup, SUV };

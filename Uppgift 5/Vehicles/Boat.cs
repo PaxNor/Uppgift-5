@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
-    internal class Boat : Vehicle
+    public class Boat : Vehicle
     {
         public uint Length { get; }
 

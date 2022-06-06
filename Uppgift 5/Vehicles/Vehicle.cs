@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
-    internal abstract class Vehicle
+    public abstract class Vehicle
     {
         public string LicensePlateNr { get; }
         public uint WheelCount { get; }

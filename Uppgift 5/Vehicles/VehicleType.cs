@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
-    internal enum VehicleType
+    public enum VehicleType
     {
         Car,
         Motorcycle,

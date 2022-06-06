@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
-    internal class Airplane : Vehicle
+    public class Airplane : Vehicle
     {
         public uint Wingspan { get; }
 

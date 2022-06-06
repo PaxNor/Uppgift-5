@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
-    internal class Bus : Vehicle
+    public class Bus : Vehicle
     {
         public uint SeatCount { get; set; }
         public uint Weight { get; set; }

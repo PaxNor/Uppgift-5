@@ -11,7 +11,7 @@ namespace Uppgift5.Test
         [Fact]
         public void AddTest() {
             //-- Arrange
-            //Garage<Vehicle> garage = new();
+            Garage<Vehicle> garage = new(10);
 
             //-- Act
 
