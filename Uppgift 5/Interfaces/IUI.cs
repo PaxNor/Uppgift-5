@@ -11,5 +11,6 @@
         void SearchByProperty(IGarageHandler handler);
         void ShowFreeSpace(IGarageHandler handler);
         void ShowStats(IGarageHandler handler);
+        void CreateNewGarage(IGarageHandler handler);
     }
 }

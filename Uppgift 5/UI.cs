@@ -23,7 +23,8 @@ namespace Uppgift_5
             "5. List all vehicles\n" +
             "6. Search by property\n" +
             "7. Show available parking spots\n" +
-            "8. Quit";
+            "8. Create new garage\n" +
+            "9. Quit";
 
         private const string subMenu =
            "Enter query to list vehicles based on the given properties.\n" +
@@ -151,30 +152,42 @@ namespace Uppgift_5
             Console.WriteLine($"Available parking spots: {handler.FreeSpace()}");
         }
 
-        // wrappers
-        public void PrintObject(object? message) {
-            Console.WriteLine(message);
-        }
-
-        public void ReportError(string message) {
-            Console.WriteLine(message);
-        }
-
-        // Experimental not used, should perhaps be in GarageHandler. A garage should
-        // not be returned to the manager, maybe it should be added inside this method.
-        private Object? AddGarage(IGarageHandler handler) {
+        // TODO: either remove type selection or solve it.
+        public void CreateNewGarage(IGarageHandler handler) {
             uint capacity = IOUtil.runUserDialogNumeric("Enter capacity of new garage: ");
             string garageType = IOUtil.runUserDialog("Enter garage type (car, bus, boat, motorcycle, airplane or all): ",
                                                         "car", "bus", "boat", "motorcycle", "airplane", "all");
             switch (garageType.ToLower()) {
-                case "all": return handler.CreateNewGarage(VehicleType.Vehicle, capacity);
-                case "car": return handler.CreateNewGarage(VehicleType.Car, capacity);
-                case "bus": return handler.CreateNewGarage(VehicleType.Bus, capacity);
-                case "motorcycle": return handler.CreateNewGarage(VehicleType.Motorcycle, capacity);
-                case "boat": return handler.CreateNewGarage(VehicleType.Boat, capacity);
-                case "airplane": return handler.CreateNewGarage(VehicleType.Airplane, capacity);
+                case "all":
+                    handler.CreateNewGarage(VehicleType.Vehicle, capacity);
+                    break;
+                case "car":
+                    handler.CreateNewGarage(VehicleType.Car, capacity);
+                    break;
+                case "bus":
+                    handler.CreateNewGarage(VehicleType.Bus, capacity);
+                    break;
+                case "motorcycle":
+                    handler.CreateNewGarage(VehicleType.Motorcycle, capacity);
+                    break;
+                case "boat":
+                    handler.CreateNewGarage(VehicleType.Boat, capacity);
+                    break;
+                case "airplane":
+                    handler.CreateNewGarage(VehicleType.Airplane, capacity);
+                    break;
+                default:
+                    throw new Exception("Unsupported garage type");
             }
-            return null;
+        }
+
+        // wrappers
+        public void PrintObject(object? obj) {
+            Console.WriteLine(obj);
+        }
+
+        public void ReportError(string message) {
+            Console.WriteLine(message);
         }
     }
 }

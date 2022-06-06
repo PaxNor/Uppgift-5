@@ -51,7 +51,7 @@ namespace Uppgift5.Test
         }
 
         [Fact]
-        public void FindVehicle() {
+        public void FindVehicleTest() {
             //-- Arrange
             Garage<Vehicle> garage = new(10);
             Bus bus = new("ABC123", 4, "gray", "Ford", 10, 2000);

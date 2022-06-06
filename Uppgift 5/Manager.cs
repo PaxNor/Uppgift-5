@@ -62,6 +62,10 @@ namespace Uppgift_5
                         break;
 
                     case "8":
+                        ui.CreateNewGarage(handler);
+                        break;
+
+                    case "9":
                         isRunning = false;
                         break;
 
