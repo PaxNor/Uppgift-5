@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32516.85
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uppgift 5", "Uppgift 5\Uppgift 5.csproj", "{57F5E071-A079-4123-82F6-7738F8AACABB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Uppgift 5", "Uppgift 5\Uppgift 5.csproj", "{57F5E071-A079-4123-82F6-7738F8AACABB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{8430DEA8-9747-4AAD-A020-50BFE5CB93AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Uppgift5.Test", "Tests\Uppgift5.Test\Uppgift5.Test.csproj", "{EB87624A-89DB-44A7-B8BA-D962F80EC284}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +19,16 @@ Global
 		{57F5E071-A079-4123-82F6-7738F8AACABB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57F5E071-A079-4123-82F6-7738F8AACABB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57F5E071-A079-4123-82F6-7738F8AACABB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB87624A-89DB-44A7-B8BA-D962F80EC284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB87624A-89DB-44A7-B8BA-D962F80EC284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB87624A-89DB-44A7-B8BA-D962F80EC284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB87624A-89DB-44A7-B8BA-D962F80EC284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB87624A-89DB-44A7-B8BA-D962F80EC284} = {8430DEA8-9747-4AAD-A020-50BFE5CB93AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EDA77A07-1CD0-4373-B554-C2CA8DF20EDA}

@@ -33,7 +33,6 @@ namespace Uppgift_5
             return stats;
         }
 
-        // temporary hack!
         public void InitWithGarage(IGarage<Vehicle> garage) {
             this.garage = garage;
         }

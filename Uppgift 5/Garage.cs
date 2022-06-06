@@ -8,7 +8,7 @@ using Uppgift_5.Interfaces;
 using Uppgift_5.Vehicles;
 
 /*
- * Representerar ett garage för Vehicles
+ * Representerar ett garage av Vehicles
  */
 
 namespace Uppgift_5

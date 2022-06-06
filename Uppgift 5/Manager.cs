@@ -24,9 +24,9 @@ namespace Uppgift_5
             ui = new UI();
         }
 
-        public void Start(Garage<Vehicle> garage) {
+        public void Start(IGarage<Vehicle> garage) {
 
-            handler.InitWithGarage(garage); // <-- temporary hack?
+            handler.InitWithGarage(garage);
             isRunning = true;
 
             while(isRunning) {
