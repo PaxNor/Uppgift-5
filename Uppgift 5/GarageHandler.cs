@@ -50,30 +50,8 @@ namespace Uppgift_5
 
         public bool AddVehicle(Vehicle vehicle) => garage.Add(vehicle);
 
-        // TODO: either remove type selection or solve it.
-        public void CreateNewGarage(VehicleType type, uint capacity) {
-            switch (type) {
-                case VehicleType.Car:
+        public void CreateNewGarage(uint capacity) {
                     garage = new Garage<Vehicle>(capacity);
-                    break;
-                case VehicleType.Bus:
-                    garage = new Garage<Vehicle>(capacity);
-                    break;
-                case VehicleType.Motorcycle:
-                    garage = new Garage<Vehicle>(capacity);
-                    break;
-                case VehicleType.Boat:
-                    garage = new Garage<Vehicle>(capacity);
-                    break;
-                case VehicleType.Airplane:
-                    garage = new Garage<Vehicle>(capacity);
-                    break;
-                case VehicleType.Vehicle:
-                    garage = new Garage<Vehicle>(capacity);
-                    break;
-                default:
-                    throw new Exception("Unsupported garage type");
-            }
         }
 
         public List<Vehicle>? SearchByProperty(List<string[]> queries) {

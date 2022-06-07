@@ -152,33 +152,10 @@ namespace Uppgift_5
             Console.WriteLine($"Available parking spots: {handler.FreeSpace()}");
         }
 
-        // TODO: either remove type selection or solve it.
         public void CreateNewGarage(IGarageHandler handler) {
             uint capacity = IOUtil.runUserDialogNumeric("Enter capacity of new garage: ");
-            string garageType = IOUtil.runUserDialog("Enter garage type (car, bus, boat, motorcycle, airplane or all): ",
-                                                        "car", "bus", "boat", "motorcycle", "airplane", "all");
-            switch (garageType.ToLower()) {
-                case "all":
-                    handler.CreateNewGarage(VehicleType.Vehicle, capacity);
-                    break;
-                case "car":
-                    handler.CreateNewGarage(VehicleType.Car, capacity);
-                    break;
-                case "bus":
-                    handler.CreateNewGarage(VehicleType.Bus, capacity);
-                    break;
-                case "motorcycle":
-                    handler.CreateNewGarage(VehicleType.Motorcycle, capacity);
-                    break;
-                case "boat":
-                    handler.CreateNewGarage(VehicleType.Boat, capacity);
-                    break;
-                case "airplane":
-                    handler.CreateNewGarage(VehicleType.Airplane, capacity);
-                    break;
-                default:
-                    throw new Exception("Unsupported garage type");
-            }
+            handler.CreateNewGarage(capacity);
+            Console.WriteLine("New garage added");
         }
 
         // wrappers

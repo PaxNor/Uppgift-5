@@ -5,7 +5,7 @@ namespace Uppgift_5.Interfaces
     internal interface IGarageHandler
     {
         bool AddVehicle(Vehicle vehicle);
-        void CreateNewGarage(VehicleType type, uint capacity);
+        void CreateNewGarage(uint capacity);
         bool FindVehicle(string plateNr);
         uint FreeSpace();
         Dictionary<VehicleType, int> GetStats();
