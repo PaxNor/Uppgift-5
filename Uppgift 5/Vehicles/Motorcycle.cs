@@ -21,7 +21,7 @@ namespace Uppgift_5.Vehicles
         }
 
         public override string ToString() {
-            return base.ToString() + $"Speed: {TopSpeed,3}, Type: {Type.ToString(),10}, Subtype: {subType.ToString()}";
+            return base.ToString() + $"Type: {Type.ToString(),10}, Subtype: {subType.ToString()}, Speed: {TopSpeed,3}";
         }
     }
 }

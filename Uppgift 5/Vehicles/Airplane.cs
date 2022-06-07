@@ -17,7 +17,7 @@ namespace Uppgift_5.Vehicles
         }
 
         public override string ToString() {
-            return base.ToString() + $"Wingspan: {Wingspan,3}, Type: {Type.ToString(),10}";
+            return base.ToString() + $"Type: {Type.ToString(),10}, Wingspan: {Wingspan,3}";
         }
 
     }

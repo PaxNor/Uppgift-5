@@ -19,7 +19,7 @@ namespace Uppgift_5.Vehicles
         }
 
         public override string ToString() {
-            return base.ToString() + $"Seats: {SeatCount,3}, Weight: {Weight,4}, Type: {Type.ToString(),10}";
+            return base.ToString() + $"Type: {Type.ToString(),10}, Seats: {SeatCount,3}, Weight: {Weight,4}";
         }
     }
 }

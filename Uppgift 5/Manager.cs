@@ -7,7 +7,7 @@ using Uppgift_5.Vehicles;
 using Uppgift_5.Interfaces;
 
 /*
- * Sköter meny val och delegerar mellan UI och GarageHandler
+ * Sköter menyval och delegerar mellan UI och GarageHandler
  */
 
 namespace Uppgift_5
