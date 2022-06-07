@@ -28,10 +28,10 @@ namespace Uppgift_5
 
         private const string subMenu =
            "Enter query to list vehicles based on the given properties.\n" +
-           "The syntax is key / value pairs separated with commas.\n" +
-           "Valid properties are: plate, wheels, color, type and brand\n" +
+           "The syntax is key / value pairs separated with commas.\n\n" +
+           "Valid properties are: \u001b[96mplate, wheels, color, type, brand\u001b[0m\n" +
            "Type \'exit\' to exit to main menu.\n\n" +
-           "Example: color black, wheels 3, brand Volvo";
+           "Example: type car, color silver, brand volvo";
 
         private void CommandPrompt(IGarageHandler handler) {
 
@@ -56,8 +56,6 @@ namespace Uppgift_5
             }
         }
 
-        // Adds dependency on Vehicle, but the alternative is to add it to the handler eventhough
-        // it mostly consists of user io, and then the handler has a dependency on vehicle.
         private static Vehicle CreateVehicle() {
 
             string type = IOUtil.runUserDialog("Enter vehicle type: ", "car", "bus", "motorcycle", "boat", "airplane");
@@ -123,10 +121,14 @@ namespace Uppgift_5
         }
 
         public void ShowStats(IGarageHandler handler) {
-            Dictionary<VehicleType, int> stats = handler.GetStats();
+            List<string> stats = handler.GetStats();
             foreach (var stat in stats) {
-                Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
+                Console.WriteLine(stat);
             }
+            //Dictionary<VehicleType, int> stats = handler.GetStatsDict();
+            //foreach (var stat in stats) {
+            //    Console.WriteLine("{0,-10} {1,2}", stat.Key.ToString(), stat.Value);
+            //}
         }
 
         public void FindVehicle(IGarageHandler handler) {

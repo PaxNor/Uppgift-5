@@ -8,7 +8,7 @@ namespace Uppgift_5.Interfaces
         void CreateNewGarage(uint capacity);
         bool FindVehicle(string plateNr);
         uint FreeSpace();
-        Dictionary<VehicleType, int> GetStats();
+        List<string> GetStats(); 
         void InitWithGarage(IGarage<Vehicle> garage);
         void ListVehicles(IUI ui);
         Vehicle? RemoveVehicle(string plateNr);

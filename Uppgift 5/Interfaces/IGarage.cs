@@ -9,6 +9,5 @@ namespace Uppgift_5.Interfaces
         uint FreeSpace();
         IEnumerator<T> GetEnumerator();
         Vehicle? RemoveVehicle(string licensePlateNr);
-        bool RemoveVehicle2(string licensePlateNr);
     }
 }

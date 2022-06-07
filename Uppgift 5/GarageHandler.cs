@@ -17,7 +17,8 @@ namespace Uppgift_5
     {
         private IGarage<Vehicle>? garage;
 
-        public Dictionary<VehicleType, int> GetStats() {
+        // not declared in interface, not used
+        public Dictionary<VehicleType, int> GetStatsDict() {
             Dictionary<VehicleType, int> stats = new();
             VehicleType type;
 
@@ -30,6 +31,24 @@ namespace Uppgift_5
                     stats[type] = 1;
             }
 
+            return stats;
+        }
+
+        public List<string> GetStats() {
+            int sum = 0;
+            List<string> stats = new();
+
+            var groupByVehicleType = from vehicle in garage
+                                     group vehicle by vehicle.Type;
+
+            foreach (var vehicleGroup in groupByVehicleType) {
+                foreach (var vehicle in vehicleGroup) {
+                    sum++;
+                }
+                string result = string.Format("{0,-10} {1,2}", vehicleGroup.Key.ToString(), sum);
+                stats.Add(result);
+                sum = 0;
+            }
             return stats;
         }
 
