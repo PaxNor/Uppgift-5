@@ -33,6 +33,7 @@ namespace Uppgift_5
            "Type \'exit\' to exit to main menu.\n\n" +
            "Example: type car, color silver, brand volvo";
 
+        // runs a command prompt interface that reads user input
         private void CommandPrompt(IGarageHandler handler) {
 
             List<Vehicle>? result = null;
