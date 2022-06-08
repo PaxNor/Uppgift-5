@@ -67,6 +67,7 @@ namespace Uppgift_5
 
                     case "9":
                         isRunning = false;
+                        handler.SaveGarageToDisk();
                         break;
 
                     default:

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
+    [Serializable]
     public abstract class Vehicle
     {
         public string LicensePlateNr { get; }

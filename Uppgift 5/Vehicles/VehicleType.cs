@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Uppgift_5.Vehicles
 {
+    [Serializable]
     public enum VehicleType
     {
         Car,

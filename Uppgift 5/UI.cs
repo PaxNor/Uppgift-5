@@ -15,6 +15,8 @@ namespace Uppgift_5
 {
     internal class UI : IUI
     {
+        private const string cyan = "\u001b[96m", reset = "\u001b[0m";
+
         private const string mainMenu =
             "1. Park vehicle\n" +
             "2. Show stats\n" +
@@ -29,9 +31,10 @@ namespace Uppgift_5
         private const string subMenu =
            "Enter query to list vehicles based on the given properties.\n" +
            "The syntax is key / value pairs separated with commas.\n\n" +
-           "Valid properties are: \u001b[96mplate, wheels, color, type, brand\u001b[0m\n" +
+          $"Valid properties are: {cyan}plate, wheels, color, type, brand{reset}\n" +
            "Type \'exit\' to exit to main menu.\n\n" +
            "Example: type car, color silver, brand volvo";
+
 
         // runs a command prompt interface that reads user input
         private void CommandPrompt(IGarageHandler handler) {

@@ -13,6 +13,7 @@ using Uppgift_5.Vehicles;
 
 namespace Uppgift_5
 {
+    [Serializable]
     public class Garage<T> : IEnumerable<T>, IGarage<T> where T : Vehicle
     {
         private T[] parkingSpot;
