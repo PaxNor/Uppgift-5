@@ -35,7 +35,6 @@ namespace Uppgift_5
            "Type \'exit\' to exit to main menu.\n\n" +
            "Example: type car, color silver, brand volvo";
 
-
         // runs a command prompt interface that reads user input
         private void CommandPrompt(IGarageHandler handler) {
 
@@ -74,7 +73,7 @@ namespace Uppgift_5
             switch (type.ToLower()) {
 
                 case "car":
-                    subType = IOUtil.runUserDialog("Enter model (sedan, coupe, pickup suv): ", "sedan", "coupe", "convertible", "pickup", "suv");
+                    subType = IOUtil.runUserDialog("Enter model (sedan, coupe, convertible, pickup, suv): ", "sedan", "coupe", "convertible", "pickup", "suv");
                     Car.SubType carType = (Car.SubType)Enum.Parse(typeof(Car.SubType), subType, true);
                     return new Car(licensePlate, wheelCount, color, brand, carType);
 

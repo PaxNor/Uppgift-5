@@ -65,9 +65,8 @@ namespace Uppgift_5
                         ui.CreateNewGarage(handler);
                         break;
 
-                    case "9":
+                    case "9": 
                         isRunning = false;
-                        handler.SaveGarageToDisk();
                         break;
 
                     default:

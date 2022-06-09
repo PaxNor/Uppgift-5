@@ -121,49 +121,5 @@ namespace Uppgift_5
             return garage.FreeSpace();
         }
 
-        // experimental
-        public void SaveGarageToDisk() {
-
-            // write garage to 'garage.dat'
-            FileStream fs = new FileStream("garage.dat", FileMode.Create);
-            BinaryFormatter formatter = new BinaryFormatter();
-            try {
-                formatter.Serialize(fs, garage);
-            }
-            catch (Exception ex) {
-                Console.WriteLine("Failed to serialize. Reason: ", ex.Message);
-                throw;
-            }
-            finally {
-                fs.Close();
-            }
-
-            ReadGarageFromDisk();
-        }
-
-        // experimental
-        public void ReadGarageFromDisk() {
-
-            // read garage from 'garage.dat'
-            Garage<Vehicle>? garageFromDisk = null;
-            FileStream fs = new FileStream("garage.dat", FileMode.Open);
-            BinaryFormatter formatter = new BinaryFormatter();
-
-            try {
-                garageFromDisk = (Garage<Vehicle>)formatter.Deserialize(fs);
-            }
-            catch (Exception ex) {
-                Console.WriteLine("Failed to deserialize. Reason: ", ex.Message);
-                throw;
-            }
-            finally {
-                fs.Close();
-            }
-
-            // print out content of 'garage.dat'
-            foreach (var vehicle in garageFromDisk) {
-                Console.WriteLine(vehicle);
-            }
-        }
     }
 }

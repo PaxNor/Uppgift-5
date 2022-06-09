@@ -13,6 +13,5 @@ namespace Uppgift_5.Interfaces
         void ListVehicles(IUI ui);
         Vehicle? RemoveVehicle(string plateNr);
         List<Vehicle>? SearchByProperty(List<string[]> queries);
-        void SaveGarageToDisk(); // experimental
     }
 }
