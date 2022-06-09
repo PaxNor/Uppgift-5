@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Uppgift_5.Vehicles
+﻿namespace Uppgift_5.Vehicles
 {
     [Serializable]
     public class Bus : Vehicle

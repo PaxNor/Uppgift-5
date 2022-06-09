@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Uppgift_5.Auxilary;
+﻿using Uppgift_5.Auxilary;
 using Uppgift_5.Interfaces;
 using Uppgift_5.Vehicles;
-
-using System.Text.Json;
-using System.Runtime.Serialization.Formatters.Binary;
 
 /*
  * Hanterar ett garage och implementerar funktionalitet till applikationen

@@ -10,7 +10,6 @@ namespace Uppgift5.Test
         public void AddTest() {
             //-- Arrange
             Garage<Vehicle> garage = new(10);
-            //Car car = new("ABC123", 4, "red", "Volvo", Car.SubType sedan);
             Bus bus = new("ABC123", 6, "white", "Scania", 80, 10000);
 
             //-- Act

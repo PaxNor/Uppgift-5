@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Uppgift_5.Interfaces;
 using Uppgift_5.Vehicles;
-using Uppgift_5.Interfaces;
 
 /*
  * Sköter menyval och delegerar mellan UI och GarageHandler
