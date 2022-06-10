@@ -1,6 +1,5 @@
 ﻿namespace Uppgift_5.Vehicles
 {
-    [Serializable]
     public class Boat : Vehicle
     {
         public uint Length { get; }

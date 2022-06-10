@@ -6,7 +6,6 @@
 
 namespace Uppgift_5.Vehicles
 {
-    [Serializable]
     public enum VehicleType
     {
         Car,
