@@ -41,7 +41,7 @@ namespace Uppgift_5
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-        // Adds vehicle to garage. Returns true if successful or null if garage is full
+        // Adds vehicle to garage. Returns true if successful or false if garage is full
         public bool Add(T vehicle) {
             if (occupancy == capacity) return false;
 
